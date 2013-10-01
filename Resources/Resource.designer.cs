@@ -73,7 +73,10 @@ namespace Funky_Film
 		{
 			
 			// aapt resource value: 0x7f020000
-			public const int Icon = 2130837504;
+			public const int default_movie_image = 2130837504;
+			
+			// aapt resource value: 0x7f020001
+			public const int Icon = 2130837505;
 			
 			static Drawable()
 			{
@@ -88,14 +91,23 @@ namespace Funky_Film
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f070002
-			public const int empty = 2131165186;
+			// aapt resource value: 0x7f070005
+			public const int empty = 2131165189;
 			
-			// aapt resource value: 0x7f070001
-			public const int list = 2131165185;
+			// aapt resource value: 0x7f070004
+			public const int list = 2131165188;
 			
 			// aapt resource value: 0x7f070000
 			public const int myButton = 2131165184;
+			
+			// aapt resource value: 0x7f070003
+			public const int tagline = 2131165187;
+			
+			// aapt resource value: 0x7f070001
+			public const int thumbnail = 2131165185;
+			
+			// aapt resource value: 0x7f070002
+			public const int title = 2131165186;
 			
 			static Id()
 			{
@@ -114,10 +126,13 @@ namespace Funky_Film
 			public const int Main = 2130903040;
 			
 			// aapt resource value: 0x7f030001
-			public const int SearchActivity = 2130903041;
+			public const int Rowlayout = 2130903041;
 			
 			// aapt resource value: 0x7f030002
-			public const int SearchFragment = 2130903042;
+			public const int SearchActivity = 2130903042;
+			
+			// aapt resource value: 0x7f030003
+			public const int SearchFragment = 2130903043;
 			
 			static Layout()
 			{

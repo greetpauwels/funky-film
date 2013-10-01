@@ -16,6 +16,8 @@
     <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
     <AssemblyName>Funky_Film</AssemblyName>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
+    <TargetFrameworkVersion>v4.2</TargetFrameworkVersion>
+    <newfilesearch>OnLoadAutoInsert</newfilesearch>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -42,23 +44,32 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Mono.Android" />
+    <Reference Include="Mono.Android.Support.v4" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="FunkyFilmApplication.cs" />
-    <Compile Include="SearchFragment.cs" />
-    <Compile Include="SearchActivity.cs" />
-    <Compile Include="Test.cs" />
-    <Compile Include="Movie.cs" />
-    <Compile Include="CrewMember.cs" />
+    <Compile Include="Funky Film Model\Actor.cs" />
+    <Compile Include="Funky Film Model\CrewMember.cs" />
+    <Compile Include="Funky Film Model\Movie.cs" />
+    <Compile Include="Funky Film Android\Funky Film Android UI\MainActivity.cs" />
+    <Compile Include="Funky Film Android\Funky Film Android UI\SearchActivity.cs" />
+    <Compile Include="Funky Film Android\Funky Film Android UI\SearchFragment.cs" />
     <Compile Include="Actor.cs" />
+    <Compile Include="CrewMember.cs" />
+    <Compile Include="MainActivity.cs" />
+    <Compile Include="Movie.cs" />
+    <Compile Include="SearchActivity.cs" />
+    <Compile Include="SearchFragment.cs" />
+    <Compile Include="Test.cs" />
+    <Compile Include="Funky Film Android\Funky Film Android Adapter\SearchListAdapter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
     <None Include="Properties\AndroidManifest.xml" />
+    <None Include="SupportLib\android-support-v4.jar" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Main.axml" />
@@ -68,9 +79,18 @@
     <AndroidResource Include="Resources\layout\SearchActivity.axml" />
     <AndroidResource Include="Resources\layout\SearchFragment.axml" />
     <AndroidResource Include="Resources\xml\Searchable.xml" />
+    <AndroidResource Include="Resources\layout\Rowlayout.axml" />
+    <AndroidResource Include="Resources\drawable\default_movie_image.png" />
+    <AndroidResource Include="Resources\layout\SearchFragment.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>
     <Folder Include="Resources\xml\" />
+    <Folder Include="Funky Film Model\" />
+    <Folder Include="Funky Film Services\" />
+    <Folder Include="Funky Film Android\" />
+    <Folder Include="Funky Film Android\Funky Film Android Adapter\" />
+    <Folder Include="Funky Film Android\Funky Film Android UI\" />
+    <Folder Include="Funky Film Android\Funky Film Android Services Impl\" />
   </ItemGroup>
 </Project>
