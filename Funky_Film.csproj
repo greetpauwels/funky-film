@@ -49,27 +49,18 @@
   <ItemGroup>
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="FunkyFilmApplication.cs" />
     <Compile Include="Funky Film Model\Actor.cs" />
     <Compile Include="Funky Film Model\CrewMember.cs" />
     <Compile Include="Funky Film Model\Movie.cs" />
     <Compile Include="Funky Film Android\Funky Film Android UI\MainActivity.cs" />
     <Compile Include="Funky Film Android\Funky Film Android UI\SearchActivity.cs" />
     <Compile Include="Funky Film Android\Funky Film Android UI\SearchFragment.cs" />
-    <Compile Include="Actor.cs" />
-    <Compile Include="CrewMember.cs" />
-    <Compile Include="MainActivity.cs" />
-    <Compile Include="Movie.cs" />
-    <Compile Include="SearchActivity.cs" />
-    <Compile Include="SearchFragment.cs" />
-    <Compile Include="Test.cs" />
     <Compile Include="Funky Film Android\Funky Film Android Adapter\SearchListAdapter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
     <None Include="Properties\AndroidManifest.xml" />
-    <None Include="SupportLib\android-support-v4.jar" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Main.axml" />
