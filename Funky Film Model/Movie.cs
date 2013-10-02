@@ -14,20 +14,20 @@ namespace Funky_Film.Model
 	public class Movie
 	{
 
-		private int id{ get; set; }
-		public String backdrop_path { get; set; }
-		public String poster_path{ get; set; }
+		public int id{ get; set; }
+		public string backdrop_path { get; set; }
+		public string poster_path{ get; set; }
 		public bool adult{ get; set; }
-		public String[] genre{ get; set; }
-		public String original_title{ get; set; }
-		public String tagline{ get; set; }
-		public String overview{ get; set; }
-		public String release_date{ get; set; }
+		public string[] genre{ get; set; }
+		public string original_title{ get; set; }
+		public string tagline{ get; set; }
+		public string overview{ get; set; }
+		public string release_date{ get; set; }
 		public int runtime{ get; set; }
-		public String status{ get; set; }
+		public string status{ get; set; }
 		public Actor[] cast{ get; set; }
 		public CrewMember[] crew{ get; set; }
-		public String[] keywords{ get; set; }
+		public string[] keywords{ get; set; }
 
 		public Movie(){
 		}

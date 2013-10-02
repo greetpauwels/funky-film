@@ -39,6 +39,7 @@ public final class R {
         public static final int app_name=0x7f060002;
         public static final int empty_search=0x7f060003;
         public static final int hello=0x7f060000;
+        public static final int no_result=0x7f060006;
         public static final int search_hint=0x7f060005;
         public static final int start_app=0x7f060001;
         public static final int title_activity_search=0x7f060004;

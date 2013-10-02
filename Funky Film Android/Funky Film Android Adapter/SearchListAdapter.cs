@@ -10,16 +10,18 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Funky_Film.Model;
+using Funky_Film.Tasks;
+using Funky_Film.Android.Tasks;
 
 namespace Funky_Film.Android.Adapter 
 {
 	class SearchListAdapter : ArrayAdapter<Movie>
 	{
+	
 		private Context context;
 		private List<Movie> movies  = new List<Movie>();
 
-		public SearchListAdapter(Context context, List<Movie> movies){
-			super (context, Resource.Layout.Rowlayout, movies);
+		public SearchListAdapter(Context context, List<Movie> movies) : base(context, Resource.Layout.Rowlayout, movies){
 			this.context = context;
 			this.movies = movies;
 		}
@@ -44,20 +46,20 @@ namespace Funky_Film.Android.Adapter
 			Movie movie = movies.ElementAt (position);
 			viewholder.titelView.SetText (movie.original_title);
 			viewholder.tagView.SetText (movie.tagline);
-			//TODO image to thumbView
+			string url = Const.UrlImage92 + movie.poster_path;
+			viewholder.thumbView.SetImageBitmap(new RemoteImageLoaderAndroid().GetRemoteBitMap (url));
 
 			return convertView;
 		}
 
-		public override int GetCount(){
-			return movies.Count;
-		}
 
-		private static class ViewHolder {
+
+		class ViewHolder {
 			public TextView titelView;
 			public TextView tagView;
 			public ImageView thumbView;
 		}
+
 
 	}
 }

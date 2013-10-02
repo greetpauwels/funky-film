@@ -1,0 +1,15 @@
+
+Indien nodig, voor ophalen lokale bestanden
+
+? ios vs Android?
+
+public class LocalImageLoader implements ImageLoader
+{
+    public byte[] loadImage(String uri)
+	{
+	    
+	  	...
+		byte[] imageByteArray = ...
+		return imageByteArray;
+	}
+}

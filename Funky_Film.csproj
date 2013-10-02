@@ -45,6 +45,12 @@
     <Reference Include="System.Core" />
     <Reference Include="Mono.Android" />
     <Reference Include="Mono.Android.Support.v4" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\Components\json.net-4.5.11\lib\android\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Json" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Web.Services" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Resources\Resource.designer.cs" />
@@ -56,11 +62,20 @@
     <Compile Include="Funky Film Android\Funky Film Android UI\SearchActivity.cs" />
     <Compile Include="Funky Film Android\Funky Film Android UI\SearchFragment.cs" />
     <Compile Include="Funky Film Android\Funky Film Android Adapter\SearchListAdapter.cs" />
+    <Compile Include="Funky Film Tasks\ImageLoaderTask.cs" />
+    <Compile Include="Funky Film Tasks\ImageLoader.cs" />
+    <Compile Include="Funky Film Tasks\RemoteImageLoader.cs" />
+    <Compile Include="Funky Film Android\Funky Film Android Tasks\RemoteImageLoaderAndroid.cs" />
+    <Compile Include="Const.cs" />
+    <Compile Include="Funky Film Model\MovieList.cs" />
+    <Compile Include="Funky Film Tasks\SearchResultLoader.cs" />
+    <Compile Include="Funky Film Android\Funky Film Android Tasks\TODELETE_SearchResultLoaderAndroid.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
     <None Include="Properties\AndroidManifest.xml" />
+    <None Include="Funky Film Tasks\LocalImageLoader_TOBE.txt" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Main.axml" />
@@ -83,5 +98,14 @@
     <Folder Include="Funky Film Android\Funky Film Android Adapter\" />
     <Folder Include="Funky Film Android\Funky Film Android UI\" />
     <Folder Include="Funky Film Android\Funky Film Android Services Impl\" />
+    <Folder Include="Funky Film Tasks\" />
+    <Folder Include="Funky Film Android\Funky Film Android Tasks\" />
+  </ItemGroup>
+  <ItemGroup>
+    <XamarinComponentReference Include="json.net">
+      <InstallationInProgress>False</InstallationInProgress>
+      <Version>4.5.11</Version>
+      <Visible>False</Visible>
+    </XamarinComponentReference>
   </ItemGroup>
 </Project>
