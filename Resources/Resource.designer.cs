@@ -78,6 +78,9 @@ namespace Funky_Film
 			// aapt resource value: 0x7f020001
 			public const int Icon = 2130837505;
 			
+			// aapt resource value: 0x7f020002
+			public const int monoandroidsplash = 2130837506;
+			
 			static Drawable()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
@@ -91,23 +94,23 @@ namespace Funky_Film
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f070005
-			public const int empty = 2131165189;
+			// aapt resource value: 0x7f080005
+			public const int empty = 2131230725;
 			
-			// aapt resource value: 0x7f070004
-			public const int list = 2131165188;
+			// aapt resource value: 0x7f080004
+			public const int list = 2131230724;
 			
-			// aapt resource value: 0x7f070000
-			public const int myButton = 2131165184;
+			// aapt resource value: 0x7f080000
+			public const int myButton = 2131230720;
 			
-			// aapt resource value: 0x7f070003
-			public const int tagline = 2131165187;
+			// aapt resource value: 0x7f080003
+			public const int tagline = 2131230723;
 			
-			// aapt resource value: 0x7f070001
-			public const int thumbnail = 2131165185;
+			// aapt resource value: 0x7f080001
+			public const int thumbnail = 2131230721;
 			
-			// aapt resource value: 0x7f070002
-			public const int title = 2131165186;
+			// aapt resource value: 0x7f080002
+			public const int title = 2131230722;
 			
 			static Id()
 			{
@@ -174,6 +177,22 @@ namespace Funky_Film
 			}
 			
 			private String()
+			{
+			}
+		}
+		
+		public partial class Style
+		{
+			
+			// aapt resource value: 0x7f070000
+			public const int Mono_Android_Theme_Splash = 2131165184;
+			
+			static Style()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Style()
 			{
 			}
 		}

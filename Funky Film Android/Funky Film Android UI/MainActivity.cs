@@ -8,10 +8,10 @@ using Android.OS;
 
 namespace Funky_Film.Android.UI
 {
-	[Activity (Label = "Funky_Film", MainLauncher = true)]
+
 	public class MainActivity : Activity
 	{
-		int count = 1;
+	
 
 		protected override void OnCreate (Bundle bundle)
 		{

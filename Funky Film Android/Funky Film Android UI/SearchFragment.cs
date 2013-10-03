@@ -14,13 +14,13 @@ using Funky_Film.Model;
 using Funky_Film.Tasks;
 using Java.Util;
 using Org.Apache.Http.Util;
+using System.Threading.Tasks;
 
 namespace Funky_Film.Android.UI 
 {
 	public class SearchFragment : Fragment
 	{
-
-		Intent intent;
+		
 		SearchListAdapter adapter;
 		MovieList movieList;
 		List<Movie> movies = new List<Movie>();
@@ -37,7 +37,9 @@ namespace Funky_Film.Android.UI
 			base.OnCreate (savedInstanceState);
 			string query = Const.TestSearch;
 			//TODO vervangen door input van gebruiker
-			new RunSearch().Execute ( query);
+
+
+			NewSearch(query);
 
 		}
 
@@ -55,17 +57,48 @@ namespace Funky_Film.Android.UI
 			return view;
 		}
 
+	private async Task<List<Movie>> RunSearch(string query){
 
+			string url = Const.UrlSearch + query;
+			movieList = await new SearchResultLoader ().GetSearchResults (url);
+		//	Task returnedSearchResults = new SearchResultLoader ().GetSearchResults (url);
+		//	movieList = await returnedSearchResults;
+			return  movieList.results.OfType<Movie> ().ToList ();
 
-	public class RunSearch:AsyncTask<Java.Lang.String, object, object> {
+		}
+
+	private async void NewSearch(string query){
+
+			movies = await RunSearch (query);
+		//	Task searchResultsAsList = RunSearch ();
+		//	movies = await searchResultsAsList;
+			adapter.Clear ();
+			adapter.AddAll (movies);
+			if (movies.Count == 0) {
+				Toast.MakeText (Activity.ApplicationContext, Resource.String.no_result, ToastLength.Long).Show ();
+			}
+		}
+
+	/*class RunSearch:AsyncTask<Java.Lang.String, object, object> {
 
 			string url = "";
+			Context context;
+			SearchListAdapter adapter;
+			MovieList movieList;
+			List<Movie> movies;
 
+			public RunSearch(Context context, SearchListAdapter adapter, MovieList movieList, List<Movie> movies){
+				this.adapter = adapter;
+				this.context = context;
+				this.movieList = movieList;
+				this.movies = movies;
+			}
 
 			protected override object RunInBackground(params Java.Lang.String[] param){
 				url = Const.UrlSearch + param[0].ToString ();
-				movieList = new SearchResultLoader ().GetSearchResults (url);
-				movies = (List<Movie>)Arrays.AsList (movieList.results);
+				movieList = (MovieList)new SearchResultLoader ().GetSearchResults (url);
+				movies = movieList.results.OfType<Movie> ().ToList ();
+				//	(List<Movie>)Arrays.AsList (movieList.results);
 				return null;
 			}
 
@@ -73,11 +106,11 @@ namespace Funky_Film.Android.UI
 				adapter.Clear ();
 				adapter.AddAll (movies);
 				if (movies.Count == 0) {
-					Toast.MakeText (Activity.ApplicationContext, Resource.String.no_result, ToastLength.Long).Show ();
+					Toast.MakeText (context, Resource.String.no_result, ToastLength.Long).Show ();
 				}
 
 			}
-		}
+		}*/
 
 	}
 

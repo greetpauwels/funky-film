@@ -17,7 +17,7 @@ namespace Funky_Film.Tasks
 	{
 
 		private	Context _context;
-		private String url;
+		private String _url;
 
 
 
