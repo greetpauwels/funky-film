@@ -58,7 +58,6 @@
     <Compile Include="Funky Film Model\Actor.cs" />
     <Compile Include="Funky Film Model\CrewMember.cs" />
     <Compile Include="Funky Film Model\Movie.cs" />
-    <Compile Include="Funky Film Android\Funky Film Android UI\MainActivity.cs" />
     <Compile Include="Funky Film Android\Funky Film Android UI\SearchActivity.cs" />
     <Compile Include="Funky Film Android\Funky Film Android UI\SearchFragment.cs" />
     <Compile Include="Funky Film Android\Funky Film Android Adapter\SearchListAdapter.cs" />
@@ -69,6 +68,7 @@
     <Compile Include="Const.cs" />
     <Compile Include="Funky Film Model\MovieList.cs" />
     <Compile Include="Funky Film Tasks\SearchResultLoader.cs" />
+    <Compile Include="Funky Film Android\Funky Film Android UI\MainActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

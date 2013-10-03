@@ -3,15 +3,9 @@
 	<uses-sdk android:minSdkVersion="14" android:targetSdkVersion="17" />
 	<application android:label="@string/app_name">
 		
-		<activity android:name="Funky_Film.Android.UI.MainActivity" >
-			<intent-filter>
-				<action android:name="android.intent.action.MAIN" />
-				<category android:name="android.intent.category.LAUNCHER" />
-			</intent-filter>
-		</activity>
 		
 		<activity 
-		android:name="Funky_Film.Android.UI.SearchActivity" android:label="@string/title_activity_search" android:uiOptions="splitActionBarWhenNarrow" android:parentActivityName="MainActivity">
+		android:name="SearchActivity" android:label="@string/title_activity_search" android:uiOptions="splitActionBarWhenNarrow" android:parentActivityName="MainActivity">
 			<intent-filter>
 				<action android:name="android.intent.action.SEARCH" />
 			</intent-filter>
