@@ -37,21 +37,17 @@ namespace Funky_Film.Android.UI
 			base.OnCreate (savedInstanceState);
 			query = Const.TestSearch;
 			//TODO vervangen door input van gebruiker
-
-			NewSearch();
-
 		}
 
 		public override View OnCreateView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
 		{
 			View view = inflater.Inflate (Resource.Layout.SearchFragment, container, false);
 
+			NewSearch();
+
 			list = (ListView)view.FindViewById (Resource.Id.list);
 
 			Log.Info ("SearchFragment - onCreateView", Convert.ToString (movies.Count) );
-
-			adapter = new SearchListAdapter (Activity.ApplicationContext, movies);
-			list.Adapter = adapter;
 
 			TextView empty = (TextView)view.FindViewById (Resource.Id.empty);
 			list.EmptyView = empty;
@@ -83,10 +79,10 @@ namespace Funky_Film.Android.UI
 		//	Task searchResultsAsList = RunSearch ();
 		//	movies = await searchResultsAsList;
 			Log.Info ("SearchFragment", "NewSearchMID" );
-			Log.Info ("SearchFragment - newSearchMID", Convert.ToString (movies.Count) ); 
+			Log.Info ("SearchFragment", " - newSearchMID "+Convert.ToString (movies.Count) ); 
 
-			adapter.Clear ();
-			adapter.AddAll (movies);
+			adapter = new SearchListAdapter (Activity.ApplicationContext, movies);
+			list.Adapter = adapter;
 
 
 			if (movies.Count == 0) {
