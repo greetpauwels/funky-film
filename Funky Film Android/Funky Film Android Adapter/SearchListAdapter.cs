@@ -38,9 +38,9 @@ namespace Funky_Film.Android.Adapter
 				viewholder.titelView = (TextView)convertView.FindViewById (Resource.Id.title);
 				viewholder.tagView = (TextView)convertView.FindViewById (Resource.Id.tagline);
 				viewholder.thumbView = (ImageView)convertView.FindViewById (Resource.Id.thumbnail);
-				convertView.SetTag (1, viewholder);
+				convertView.Tag = viewholder;
 			} else {
-				viewholder = (ViewHolder)convertView.GetTag (1);
+				viewholder = (ViewHolder)convertView.Tag;
 			}
 
 			Movie movie = movies.ElementAt (position);

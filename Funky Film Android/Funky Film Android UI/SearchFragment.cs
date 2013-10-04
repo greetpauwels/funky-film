@@ -58,26 +58,29 @@ namespace Funky_Film.Android.UI
 		}
 
 	private async Task<List<Movie>> RunSearch(string query){
-
+			Log.Info ("SearchFragment", "RunSearchIN" );
 			string url = Const.UrlSearch + query;
 			Log.Info ("search url", url);
 			movieList = await new SearchResultLoader ().GetSearchResults (url);
 		//	Task returnedSearchResults = new SearchResultLoader ().GetSearchResults (url);
 		//	movieList = await returnedSearchResults;
+			Log.Info ("SearchFragment", "NewSearchOUT" );
 			return  movieList.results.OfType<Movie> ().ToList ();
 
 		}
 
 	private async void NewSearch(string query){
-
+			Log.Info ("SearchFragment", "NewSearchIN" );
 			movies = await RunSearch (query);
 		//	Task searchResultsAsList = RunSearch ();
 		//	movies = await searchResultsAsList;
+			Log.Info ("SearchFragment", "NewSearchMID" );
 			adapter.Clear ();
 			adapter.AddAll (movies);
 			if (movies.Count == 0) {
 				Toast.MakeText (Activity.ApplicationContext, Resource.String.no_result, ToastLength.Long).Show ();
 			}
+			Log.Info ("SearchFragment", "NewSearchOUT" );
 		}
 
 	/*class RunSearch:AsyncTask<Java.Lang.String, object, object> {
