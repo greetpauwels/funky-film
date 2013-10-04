@@ -12,6 +12,7 @@ using Android.Widget;
 using Funky_Film.Model;
 using Funky_Film.Tasks;
 using Funky_Film.Android.Tasks;
+using Android.Util;
 
 namespace Funky_Film.Android.Adapter 
 {
@@ -42,14 +43,17 @@ namespace Funky_Film.Android.Adapter
 			} else {
 				viewholder = (ViewHolder)convertView.Tag;
 			}
+			int sizeList = movies.Count; 
+			Log.Info ("SearchListAdapter", Convert.ToString (sizeList));
 
-			Movie movie = movies.ElementAt (position);
-			viewholder.titelView.Text = movie.original_title;
-			viewholder.titelView.Text = movie.original_title;
-			viewholder.tagView.Text = movie.tagline;
-			string url = Const.UrlImage92 + movie.poster_path;
-			viewholder.thumbView.SetImageBitmap(new RemoteImageLoaderAndroid().GetRemoteBitMap (url));
-
+			if (movies.Count != 0) {
+				Movie movie = movies.ElementAt (position);
+				viewholder.titelView.Text = movie.original_title;
+				viewholder.titelView.Text = movie.original_title;
+				viewholder.tagView.Text = movie.tagline;
+				string url = Const.UrlImage92 + movie.poster_path;
+				viewholder.thumbView.SetImageBitmap (new RemoteImageLoaderAndroid ().GetRemoteBitMap (url));
+			}
 			return convertView;
 		}
 
