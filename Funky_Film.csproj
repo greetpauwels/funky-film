@@ -86,7 +86,6 @@
     <AndroidResource Include="Resources\xml\Searchable.xml" />
     <AndroidResource Include="Resources\layout\Rowlayout.axml" />
     <AndroidResource Include="Resources\drawable\default_movie_image.png" />
-    <AndroidResource Include="Resources\layout\SearchFragment.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>

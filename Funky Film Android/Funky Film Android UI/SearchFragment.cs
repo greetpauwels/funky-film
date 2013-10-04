@@ -60,6 +60,7 @@ namespace Funky_Film.Android.UI
 	private async Task<List<Movie>> RunSearch(string query){
 
 			string url = Const.UrlSearch + query;
+			Log.Info ("search url", url);
 			movieList = await new SearchResultLoader ().GetSearchResults (url);
 		//	Task returnedSearchResults = new SearchResultLoader ().GetSearchResults (url);
 		//	movieList = await returnedSearchResults;

@@ -23,8 +23,9 @@ public final class R {
         public static final int monoandroidsplash=0x7f020002;
     }
     public static final class id {
-        public static final int empty=0x7f080005;
-        public static final int list=0x7f080004;
+        public static final int empty=0x7f080006;
+        public static final int list=0x7f080005;
+        public static final int movie_search=0x7f080004;
         public static final int myButton=0x7f080000;
         public static final int tagline=0x7f080003;
         public static final int thumbnail=0x7f080001;

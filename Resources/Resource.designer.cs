@@ -94,11 +94,14 @@ namespace Funky_Film
 		public partial class Id
 		{
 			
+			// aapt resource value: 0x7f080006
+			public const int empty = 2131230726;
+			
 			// aapt resource value: 0x7f080005
-			public const int empty = 2131230725;
+			public const int list = 2131230725;
 			
 			// aapt resource value: 0x7f080004
-			public const int list = 2131230724;
+			public const int movie_search = 2131230724;
 			
 			// aapt resource value: 0x7f080000
 			public const int myButton = 2131230720;
