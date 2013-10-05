@@ -28,6 +28,7 @@ namespace Funky_Film.Model
 		public Actor[] cast{ get; set; }
 		public CrewMember[] crew{ get; set; }
 		public string[] keywords{ get; set; }
+		public double vote_average { get; set; }
 
 		public Movie(){
 		}

@@ -17,9 +17,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="18sp"
+        android:singleLine="true"
         android:layout_toRightOf="@id/thumbnail"
-        android:text="TestTitel" />
-    <TextView
+        android:text="Title" />
+<!--
+     <TextView
         android:id="@+id/tagline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -28,4 +30,14 @@
         android:layout_toRightOf="@id/thumbnail"
         android:layout_alignBottom="@id/thumbnail"
         android:text="TestTagline" />
+        -->
+    <TextView
+        android:id="@+id/rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:layout_below="@id/title"
+        android:layout_toRightOf="@id/thumbnail"
+        android:layout_alignBottom="@id/thumbnail"
+        android:text="rating" />
 </RelativeLayout>

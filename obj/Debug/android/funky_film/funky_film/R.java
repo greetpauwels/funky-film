@@ -19,23 +19,28 @@ public final class R {
     }
     public static final class drawable {
         public static final int default_movie_image=0x7f020000;
-        public static final int icon=0x7f020001;
-        public static final int monoandroidsplash=0x7f020002;
+        public static final int fficon=0x7f020001;
+        public static final int icon=0x7f020002;
+        public static final int monoandroidsplash=0x7f020003;
     }
     public static final class id {
-        public static final int empty=0x7f080006;
-        public static final int list=0x7f080005;
-        public static final int movie_search=0x7f080004;
-        public static final int myButton=0x7f080000;
-        public static final int tagline=0x7f080003;
-        public static final int thumbnail=0x7f080001;
-        public static final int title=0x7f080002;
+        public static final int action_search=0x7f090007;
+        public static final int empty=0x7f090006;
+        public static final int list=0x7f090005;
+        public static final int movie_search=0x7f090004;
+        public static final int myButton=0x7f090000;
+        public static final int rating=0x7f090003;
+        public static final int thumbnail=0x7f090001;
+        public static final int title=0x7f090002;
     }
     public static final class layout {
         public static final int main=0x7f030000;
         public static final int rowlayout=0x7f030001;
         public static final int searchactivity=0x7f030002;
         public static final int searchfragment=0x7f030003;
+    }
+    public static final class menu {
+        public static final int search=0x7f080000;
     }
     public static final class string {
         public static final int app_name=0x7f060002;

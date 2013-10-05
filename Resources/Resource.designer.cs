@@ -76,10 +76,13 @@ namespace Funky_Film
 			public const int default_movie_image = 2130837504;
 			
 			// aapt resource value: 0x7f020001
-			public const int Icon = 2130837505;
+			public const int FFIcon = 2130837505;
 			
 			// aapt resource value: 0x7f020002
-			public const int monoandroidsplash = 2130837506;
+			public const int Icon = 2130837506;
+			
+			// aapt resource value: 0x7f020003
+			public const int monoandroidsplash = 2130837507;
 			
 			static Drawable()
 			{
@@ -94,26 +97,29 @@ namespace Funky_Film
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f080006
-			public const int empty = 2131230726;
+			// aapt resource value: 0x7f090007
+			public const int action_search = 2131296263;
 			
-			// aapt resource value: 0x7f080005
-			public const int list = 2131230725;
+			// aapt resource value: 0x7f090006
+			public const int empty = 2131296262;
 			
-			// aapt resource value: 0x7f080004
-			public const int movie_search = 2131230724;
+			// aapt resource value: 0x7f090005
+			public const int list = 2131296261;
 			
-			// aapt resource value: 0x7f080000
-			public const int myButton = 2131230720;
+			// aapt resource value: 0x7f090004
+			public const int movie_search = 2131296260;
 			
-			// aapt resource value: 0x7f080003
-			public const int tagline = 2131230723;
+			// aapt resource value: 0x7f090000
+			public const int myButton = 2131296256;
 			
-			// aapt resource value: 0x7f080001
-			public const int thumbnail = 2131230721;
+			// aapt resource value: 0x7f090003
+			public const int rating = 2131296259;
 			
-			// aapt resource value: 0x7f080002
-			public const int title = 2131230722;
+			// aapt resource value: 0x7f090001
+			public const int thumbnail = 2131296257;
+			
+			// aapt resource value: 0x7f090002
+			public const int title = 2131296258;
 			
 			static Id()
 			{
@@ -146,6 +152,22 @@ namespace Funky_Film
 			}
 			
 			private Layout()
+			{
+			}
+		}
+		
+		public partial class Menu
+		{
+			
+			// aapt resource value: 0x7f080000
+			public const int search = 2131230720;
+			
+			static Menu()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Menu()
 			{
 			}
 		}

@@ -37,7 +37,7 @@ namespace Funky_Film.Android.Adapter
 				convertView = inflater.Inflate (Resource.Layout.Rowlayout, parent, false);
 				viewholder = new ViewHolder ();
 				viewholder.titelView = (TextView)convertView.FindViewById (Resource.Id.title);
-				viewholder.tagView = (TextView)convertView.FindViewById (Resource.Id.tagline);
+				viewholder.ratingView = (TextView)convertView.FindViewById (Resource.Id.rating);
 				viewholder.thumbView = (ImageView)convertView.FindViewById (Resource.Id.thumbnail);
 				convertView.Tag = viewholder;
 			} else {
@@ -50,7 +50,7 @@ namespace Funky_Film.Android.Adapter
 				Movie movie = movies.ElementAt (position);
 				viewholder.titelView.Text = movie.original_title;
 				viewholder.titelView.Text = movie.original_title;
-				viewholder.tagView.Text = movie.tagline;
+				viewholder.ratingView.Text = Convert.ToString (movie.vote_average)+"/10";
 				string url = Const.UrlImage92 + movie.poster_path;
 				viewholder.thumbView.SetImageBitmap (new RemoteImageLoaderAndroid ().GetRemoteBitMap (url));
 			}
@@ -61,7 +61,7 @@ namespace Funky_Film.Android.Adapter
 
 		class ViewHolder:Java.Lang.Object {
 			public TextView titelView;
-			public TextView tagView;
+			public TextView ratingView;
 			public ImageView thumbView;
 		}
 

@@ -21,6 +21,7 @@ namespace Funky_Film.Android.UI
 	public class SearchFragment : Fragment
 	{
 		
+		Intent intent;
 		SearchListAdapter adapter;
 		MovieList movieList;
 		List<Movie> movies = new List<Movie>();
@@ -35,18 +36,27 @@ namespace Funky_Film.Android.UI
 		public override void OnCreate (Bundle savedInstanceState)
 		{
 			base.OnCreate (savedInstanceState);
-			query = Const.TestSearch;
-			//TODO vervangen door input van gebruiker
+
+			intent = Activity.Intent;
+			if (Intent.ActionSearch.Equals (intent.Action)) {
+				query = intent.GetStringExtra (SearchManager.Query);
+			} else {
+				query = Const.TestSearch;
+				//TODO vervangen door input van gebruiker
+			}
+
 		}
 
 		public override View OnCreateView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
 		{
 			View view = inflater.Inflate (Resource.Layout.SearchFragment, container, false);
+			//TODO Connection check to prevent crashes
+			if (query != null) {
+				NewSearch();
 
-			NewSearch();
+			}
 
 			list = (ListView)view.FindViewById (Resource.Id.list);
-
 			Log.Info ("SearchFragment - onCreateView", Convert.ToString (movies.Count) );
 
 			TextView empty = (TextView)view.FindViewById (Resource.Id.empty);
