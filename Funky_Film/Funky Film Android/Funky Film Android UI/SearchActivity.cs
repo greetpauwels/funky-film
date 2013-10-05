@@ -11,7 +11,10 @@ using Android.Widget;
 
 namespace Funky_Film.Android.UI 
 {
-	[Activity]			
+	[Activity]
+	[IntentFilter(new string[]{"android.intent.action.SEARCH"})]
+	[MetaData(("android.app.searchable"), Resource = "@xml/searchable")]
+
 	public class SearchActivity : Activity
 	{
 		protected override void OnCreate (Bundle bundle)
@@ -29,17 +32,26 @@ namespace Funky_Film.Android.UI
 			// Assumes current activity is the searchable activity
 			searchView.SetSearchableInfo(searchManager.GetSearchableInfo(ComponentName));
 			searchView.SetIconifiedByDefault(false); // Do not iconify the widget; expand it by default
-			searchView.SubmitButtonEnabled = true;
 			return true;
 		}
 
-		public override bool OnOptionsItemSelected (IMenuItem item){
+		/*public override bool OnOptionsItemSelected (IMenuItem item)
+		{
+			switch (item.ItemId) {
+				case Resource.Id.action_search:
+				OnSearchRequested ();
+				return true;
+				default:
+				return false;
+			}
+		}
 
+		public override bool OnOptionsItemSelected (IMenuItem item){
 			var search = new Intent(this, typeof(SearchActivity));
 			search.PutExtra("Query", SearchManager.Query);
 			StartActivity(search);
 			return true;
-		}
+		}*/
 
 	}
 }

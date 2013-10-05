@@ -51,8 +51,10 @@ namespace Funky_Film.Android.Adapter
 				viewholder.titelView.Text = movie.original_title;
 				viewholder.titelView.Text = movie.original_title;
 				viewholder.ratingView.Text = Convert.ToString (movie.vote_average)+"/10";
-				string url = Const.UrlImage92 + movie.poster_path;
-				viewholder.thumbView.SetImageBitmap (new RemoteImageLoaderAndroid ().GetRemoteBitMap (url));
+				if (movie.poster_path != null) {
+					string url = Const.UrlImage92 + movie.poster_path;
+					viewholder.thumbView.SetImageBitmap (new RemoteImageLoaderAndroid ().GetRemoteBitMap (url));
+				}
 			}
 			return convertView;
 		}
