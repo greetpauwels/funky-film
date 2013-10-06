@@ -15,6 +15,7 @@ using Funky_Film.Tasks;
 using Java.Util;
 using Org.Apache.Http.Util;
 using System.Threading.Tasks;
+using Java.Lang;
 
 namespace Funky_Film.Android.UI 
 {
@@ -27,10 +28,28 @@ namespace Funky_Film.Android.UI
 		List<Movie> movies = new List<Movie>();
 		ListView list;
 		string query;
+		CallBacks listener;
+
+		public interface CallBacks{
+			void OnItemSelected (int movieId);
+		}
 
 		public SearchFragment(){
 		}
 
+		public override void OnAttach(Activity activity){
+			base.OnAttach (activity);
+
+			/*if(!(activity.GetType () == typeof( CallBacks))){
+				throw new IllegalArgumentException("Activity should implement Callback");
+			}*/
+
+			listener = (CallBacks) activity;
+		}
+
+		public override void OnDetach(){
+			base.OnDetach ();
+		}
 
 
 		public override void OnCreate (Bundle savedInstanceState)
@@ -62,7 +81,15 @@ namespace Funky_Film.Android.UI
 			TextView empty = (TextView)view.FindViewById (Resource.Id.empty);
 			list.EmptyView = empty;
 
+			list.ItemClick += OnListItemClick;
+
 			return view;
+		}
+
+		void OnListItemClick(object sender, AdapterView.ItemClickEventArgs e){
+			//Movie movie = this.adapter.GetItem (e.Position);
+			int itemId = movies.ElementAt (e.Position).id;
+			listener.OnItemSelected (itemId);
 		}
 
 	private async Task<List<Movie>> RunSearch(){

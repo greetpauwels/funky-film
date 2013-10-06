@@ -15,7 +15,7 @@ namespace Funky_Film.Android.UI
 	[IntentFilter(new string[]{"android.intent.action.SEARCH"})]
 	[MetaData(("android.app.searchable"), Resource = "@xml/searchable")]
 
-	public class SearchActivity : Activity
+	public class SearchActivity : Activity, SearchFragment.CallBacks
 	{
 		protected override void OnCreate (Bundle bundle)
 		{
@@ -35,24 +35,11 @@ namespace Funky_Film.Android.UI
 			return true;
 		}
 
-		/*public override bool OnOptionsItemSelected (IMenuItem item)
-		{
-			switch (item.ItemId) {
-				case Resource.Id.action_search:
-				OnSearchRequested ();
-				return true;
-				default:
-				return false;
-			}
+		public void OnItemSelected(int movieId){
+			var toDetail = new Intent (this, typeof(DetailActivity));
+			toDetail.PutExtra ("movieId", movieId);
+			StartActivity (toDetail);
 		}
-
-		public override bool OnOptionsItemSelected (IMenuItem item){
-			var search = new Intent(this, typeof(SearchActivity));
-			search.PutExtra("Query", SearchManager.Query);
-			StartActivity(search);
-			return true;
-		}*/
-
 	}
 }
 
