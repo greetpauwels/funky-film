@@ -12,7 +12,7 @@ using Funky_Film.Android.UI;
 
 namespace Funky_Film.Android.Ui
 {
-	[Activity (Label = "MainActivity", MainLauncher=true)]		
+	[Activity (Label = "MainActivity")]		
 
 	public class MainActivity : Activity
 	{

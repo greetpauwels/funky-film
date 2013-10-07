@@ -69,10 +69,10 @@
     <Compile Include="Const.cs" />
     <Compile Include="Funky Film Model\MovieList.cs" />
     <Compile Include="Funky Film Tasks\SearchResultLoader.cs" />
-    <Compile Include="Funky Film Android\Funky Film Android UI\MainActivity.cs" />
     <Compile Include="Funky Film Android\Funky Film Android UI\DetailActivity.cs" />
     <Compile Include="Funky Film Android\Funky Film Android UI\DetailFragment.cs" />
     <Compile Include="Funky Film Android\Funky Film Android Adapter\DetailPagerAdapter.cs" />
+    <Compile Include="Funky Film Android\Funky Film Android UI\TOBEDELETEDMainActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

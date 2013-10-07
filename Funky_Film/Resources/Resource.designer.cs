@@ -97,8 +97,8 @@ namespace Funky_Film
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f09001a
-			public const int action_search = 2131296282;
+			// aapt resource value: 0x7f09001b
+			public const int action_search = 2131296283;
 			
 			// aapt resource value: 0x7f09000e
 			public const int detail_adult = 2131296270;
@@ -151,11 +151,14 @@ namespace Funky_Film
 			// aapt resource value: 0x7f090003
 			public const int detail_title = 2131296259;
 			
+			// aapt resource value: 0x7f09001a
+			public const int empty = 2131296282;
+			
 			// aapt resource value: 0x7f090019
-			public const int empty = 2131296281;
+			public const int list = 2131296281;
 			
 			// aapt resource value: 0x7f090018
-			public const int list = 2131296280;
+			public const int list_title = 2131296280;
 			
 			// aapt resource value: 0x7f090000
 			public const int movie_container = 2131296256;
@@ -270,6 +273,12 @@ namespace Funky_Film
 			
 			// aapt resource value: 0x7f06000a
 			public const int runtime = 2131099658;
+			
+			// aapt resource value: 0x7f06000f
+			public const int search_fragment_title_popular = 2131099663;
+			
+			// aapt resource value: 0x7f060010
+			public const int search_fragment_title_search = 2131099664;
 			
 			// aapt resource value: 0x7f060005
 			public const int search_hint = 2131099653;

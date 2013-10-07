@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Android.App;
 using Android.Content;
+using Android.Content.Res;
 using Android.OS;
 using Android.Runtime;
 using Android.Util;
@@ -16,6 +17,8 @@ using Java.Util;
 using Org.Apache.Http.Util;
 using System.Threading.Tasks;
 using Java.Lang;
+using System.Net.Mime;
+using System.Resources;
 
 namespace Funky_Film.Android.UI 
 {
@@ -26,9 +29,13 @@ namespace Funky_Film.Android.UI
 		SearchListAdapter adapter;
 		MovieList movieList;
 		List<Movie> movies = new List<Movie>();
+		TextView title;
 		ListView list;
 		string query;
+		string url;
+		string listTitle;
 		CallBacks listener;
+		
 
 		public interface CallBacks{
 			void OnItemSelected (int movieId);
@@ -56,12 +63,18 @@ namespace Funky_Film.Android.UI
 		{
 			base.OnCreate (savedInstanceState);
 
+			Context context = Activity.ApplicationContext;
+			Resources res = context.Resources;
+
 			intent = Activity.Intent;
 			if (Intent.ActionSearch.Equals (intent.Action)) {
+				Log.Info ("SearchFragment", "is search action");
 				query = intent.GetStringExtra (SearchManager.Query);
+				url = Const.UrlSearch + query;
+				listTitle = Resources.GetString (Resource.String.search_fragment_title_search);
 			} else {
-				query = Const.TestSearch;
-				//TODO vervangen door input van gebruiker
+				url = Const.UrlPopular;
+				listTitle = res.GetString (Resource.String.search_fragment_title_popular);
 			}
 
 		}
@@ -70,10 +83,13 @@ namespace Funky_Film.Android.UI
 		{
 			View view = inflater.Inflate (Resource.Layout.SearchFragment, container, false);
 			//TODO Connection check to prevent crashes
-			if (query != null) {
+			if (url != null) {
 				NewSearch();
 
 			}
+
+			title = (TextView)view.FindViewById (Resource.Id.list_title);
+			title.Text = listTitle;
 
 			list = (ListView)view.FindViewById (Resource.Id.list);
 			Log.Info ("SearchFragment - onCreateView", Convert.ToString (movies.Count) );
@@ -95,8 +111,6 @@ namespace Funky_Film.Android.UI
 	private async Task<List<Movie>> RunSearch(){
 
 			Log.Info ("SearchFragment", "RunSearchIN" );
-
-			string url = Const.UrlSearch + query;
 
 			Log.Info ("search url", url);
 

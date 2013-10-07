@@ -11,7 +11,7 @@ using Android.Widget;
 
 namespace Funky_Film.Android.UI 
 {
-	[Activity]
+	[Activity (MainLauncher=true)]
 	[IntentFilter(new string[]{"android.intent.action.SEARCH"})]
 	[MetaData(("android.app.searchable"), Resource = "@xml/searchable")]
 

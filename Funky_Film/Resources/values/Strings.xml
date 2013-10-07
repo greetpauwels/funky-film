@@ -4,8 +4,8 @@
 	<string name="start_app">Click here to start</string>
 	<string name="app_name">Funky Film</string>
 	<string name="empty_search">Enter a title in the search box above</string>
-	<string name="title_activity_search">Search new movie</string>
-	<string name="search_hint">Search movie title</string>
+	<string name="title_activity_search">Search new film</string>
+	<string name="search_hint">Search film title</string>
 	<string name="no_result">No results found. \nPlease try again</string>
 	<string name="tagline">Tagline:\u0020 </string>
 	<string name="overview">Overview:\u0020 </string>
@@ -15,5 +15,6 @@
     <string name="adult">Adult:\u0020 </string>
     <string name="keywords">Keywords:\u0020 </string>
     <string name="genres">Genres:\u0020 </string>
-    
+    <string name="search_fragment_title_popular">Popular films</string>
+    <string name="search_fragment_title_search">Search results</string>
 </resources>
