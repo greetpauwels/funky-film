@@ -59,7 +59,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Funky Film Model\Actor.cs" />
     <Compile Include="Funky Film Model\CrewMember.cs" />
-    <Compile Include="Funky Film Model\Movie.cs" />
     <Compile Include="Funky Film Android\Funky Film Android UI\SearchActivity.cs" />
     <Compile Include="Funky Film Android\Funky Film Android UI\SearchFragment.cs" />
     <Compile Include="Funky Film Android\Funky Film Android Adapter\SearchListAdapter.cs" />
@@ -73,6 +72,7 @@
     <Compile Include="Funky Film Android\Funky Film Android UI\DetailFragment.cs" />
     <Compile Include="Funky Film Android\Funky Film Android Adapter\DetailPagerAdapter.cs" />
     <Compile Include="Funky Film Android\Funky Film Android UI\TOBEDELETEDMainActivity.cs" />
+    <Compile Include="Funky Film Model\Movie.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

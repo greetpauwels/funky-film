@@ -16,5 +16,6 @@
     <string name="keywords">Keywords:\u0020 </string>
     <string name="genres">Genres:\u0020 </string>
     <string name="search_fragment_title_popular">Popular films</string>
+    <string name="search_fragment_title_upcoming">Upcoming films</string>
     <string name="search_fragment_title_search">Search results</string>
 </resources>

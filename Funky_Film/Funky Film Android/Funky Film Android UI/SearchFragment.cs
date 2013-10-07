@@ -59,6 +59,7 @@ namespace Funky_Film.Android.UI
 		}
 
 
+
 		public override void OnCreate (Bundle savedInstanceState)
 		{
 			base.OnCreate (savedInstanceState);
@@ -73,11 +74,12 @@ namespace Funky_Film.Android.UI
 				url = Const.UrlSearch + query;
 				listTitle = Resources.GetString (Resource.String.search_fragment_title_search);
 			} else {
-				url = Const.UrlPopular;
-				listTitle = res.GetString (Resource.String.search_fragment_title_popular);
+				url = Const.UrlUpcoming;
+				listTitle = res.GetString (Resource.String.search_fragment_title_upcoming);
 			}
 
 		}
+
 
 		public override View OnCreateView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
 		{

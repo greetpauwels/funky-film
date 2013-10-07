@@ -277,8 +277,11 @@ namespace Funky_Film
 			// aapt resource value: 0x7f06000f
 			public const int search_fragment_title_popular = 2131099663;
 			
+			// aapt resource value: 0x7f060011
+			public const int search_fragment_title_search = 2131099665;
+			
 			// aapt resource value: 0x7f060010
-			public const int search_fragment_title_search = 2131099664;
+			public const int search_fragment_title_upcoming = 2131099664;
 			
 			// aapt resource value: 0x7f060005
 			public const int search_hint = 2131099653;
