@@ -40,8 +40,9 @@ namespace Funky_Film
 		public override void OnCreate (Bundle savedInstanceState)
 		{
 			base.OnCreate (savedInstanceState);
+			intent = Activity.Intent;
 			movieId = intent.GetIntExtra ("movieId", 0);
-			url = Const.UrlMovie + movieId + "/cast" + Const.ApiKey;
+			url = Const.UrlMovie + movieId + "/casts" + Const.ApiKey;
 			// Create your fragment here
 		}
 
@@ -50,6 +51,8 @@ namespace Funky_Film
 			view = inflater.Inflate (Resource.Layout.CrewFragment, container, false);
 
 			NewSearch ();
+
+			movie_cnt_list = (ListView)view.FindViewById (Resource.Id.add_cnt_list);
 
 			return view;
 		}
