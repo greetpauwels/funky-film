@@ -18,8 +18,14 @@ namespace Funky_Film.Model
 		public String name { get; set; }
 		public String character { get; set; }
 		public int ordr { get; set; }
+		public string profile_path{ get; set;}
 
 		public Actor(){
+		}
+
+		public override string ToString ()
+		{
+			return this.name;
 		}
 	}
 }

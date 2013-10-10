@@ -56,6 +56,13 @@ namespace Funky_Film.Tasks
 
 		}
 
+		public async Task<Cast> GetCastDetail(string url){
+			Log.Info ("SearchResultLoader", "GetCastDetailsIN" );
+			contentConverted = await CreateWebRequest (url);
+			Log.Info ("SearchResultLoader", "GetCastDetailOUT" );
+			return JsonConvert.DeserializeObject<Cast> (contentConverted);
+		}
+
 
 		/*public async Task<MovieList> GetSearchResults(string url){
 			Log.Info ("SearchResultLoader", "GetSearchResultsIN" );

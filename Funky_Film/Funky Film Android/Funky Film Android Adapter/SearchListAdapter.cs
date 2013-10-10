@@ -52,7 +52,12 @@ namespace Funky_Film.Android.Adapter
 				Model.Movie movie = movies.ElementAt (position);
 				viewholder.titelView.Text = movie.original_title;
 				viewholder.titelView.Text = movie.original_title;
-				viewholder.ratingView.Text = Convert.ToString (movie.vote_average)+"/10";
+				if (movie.vote_count != 0) {
+					viewholder.ratingView.Text = Convert.ToString (movie.vote_average) + "/10";
+				} else {
+					viewholder.ratingView.Text = context.Resources.GetString (Resource.String.no_rating);
+				}
+
 
 
 				if (movie.poster_path != null) {
