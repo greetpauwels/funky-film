@@ -53,7 +53,6 @@ namespace Funky_Film.Tasks
 			contentConverted = await CreateWebRequest (url);
 			Log.Info ("SearchResultLoader", "GetMovieDetailOUT" );
 			return JsonConvert.DeserializeObject<Movie> (contentConverted);
-
 		}
 
 		public async Task<Cast> GetCastDetail(string url){
@@ -62,6 +61,21 @@ namespace Funky_Film.Tasks
 			Log.Info ("SearchResultLoader", "GetCastDetailOUT" );
 			return JsonConvert.DeserializeObject<Cast> (contentConverted);
 		}
+
+		public async Task<Person> GetPersonDetail(string url){
+			Log.Info ("SearchResultLoader", "GetPersonDetailsIN" );
+			contentConverted = await CreateWebRequest (url);
+			Log.Info ("SearchResultLoader", "GetPersonDetailsOut" );
+			return JsonConvert.DeserializeObject<Person> (contentConverted);
+		}
+
+		public async Task<Credits> GetPersonCredits(string url){
+			Log.Info ("SearchResultLoader", "GetPersonCreditsIN" );
+			contentConverted = await CreateWebRequest (url);
+			Log.Info ("SearchResultLoader", "GetPersonCreditsOut" );
+			return JsonConvert.DeserializeObject<Credits> (contentConverted);
+		}
+
 
 
 		/*public async Task<MovieList> GetSearchResults(string url){

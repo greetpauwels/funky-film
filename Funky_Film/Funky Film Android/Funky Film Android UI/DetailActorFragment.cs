@@ -34,8 +34,22 @@ namespace Funky_Film
 		ListView movie_cnt_list;
 
 		Cast cast;
-
+		Actor[] actors;
 		string url;
+		CallBacks listener;
+
+		public interface CallBacks{
+			void OnItemSelected (int actorId);
+		}
+
+		public override void OnAttach(Activity activity){
+			base.OnAttach (activity);
+			listener = (CallBacks) activity;
+		}
+
+		public override void OnDetach(){
+			base.OnDetach ();
+		}
 
 		public override void OnCreate (Bundle savedInstanceState)
 		{
@@ -53,6 +67,8 @@ namespace Funky_Film
 			NewSearch ();
 
 			movie_cnt_list = (ListView)view.FindViewById (Resource.Id.add_cnt_list);
+
+			movie_cnt_list.ItemClick += OnListItemClick;
 
 			return view;
 		}
@@ -77,7 +93,7 @@ namespace Funky_Film
 			Log.Info ("DetailActorFragment", "NewSearchIN" );
 
 			Cast castToConvert = await RunSearch ();
-			Actor[] actors = castToConvert.cast;
+			actors = castToConvert.cast;
 
 			//	Task searchResultsAsList = RunSearch ();
 			//	movies = await searchResultsAsList;
@@ -93,6 +109,11 @@ namespace Funky_Film
 			}*/
 
 			Log.Info ("DetailActorFragment", "NewSearchOUT" );
+		}
+
+		void OnListItemClick(object sender, AdapterView.ItemClickEventArgs e){
+			int itemId = actors [e.Position].id;
+			listener.OnItemSelected (itemId);
 		}
 
 	}

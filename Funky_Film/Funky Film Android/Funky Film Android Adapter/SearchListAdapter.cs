@@ -51,7 +51,6 @@ namespace Funky_Film.Android.Adapter
 			if (movies.Count != 0) {
 				Model.Movie movie = movies.ElementAt (position);
 				viewholder.titelView.Text = movie.original_title;
-				viewholder.titelView.Text = movie.original_title;
 				if (movie.vote_count != 0) {
 					viewholder.ratingView.Text = Convert.ToString (movie.vote_average) + "/10";
 				} else {

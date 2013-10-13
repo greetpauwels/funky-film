@@ -11,7 +11,7 @@
 	<string name="tagline">Tagline:\u0020 </string>
 	<string name="overview">Overview:\u0020 </string>
 	<string name="release_date">Release date:\u0020 </string>
-	<string name="runtime">Runtime: </string>
+	<string name="runtime">Runtime:\u0020 </string>
     <string name="status">Status:\u0020 </string>
     <string name="adult">Adult:\u0020 </string>
     <string name="keywords">Keywords:\u0020 </string>
@@ -25,4 +25,12 @@
     <string name="director">Director:\u0020 </string>
     <string name="writer">Writer:\u0020 </string>
     <string name="actor_role">role</string>
+    <string name="bio">Biography:\u0020</string>
+    <string name="birthday">Birthday:\u0020</string>
+    <string name="deathday">Deathday:\u0020</string>
+    <string name="birthplace">Place of birth:\u0020</string>
+    <string name="homepage">Homepage:\u0020</string>
+    <string name="about">About</string>
+    <string name="other_cast">Movies</string>
+    <string name="cast_list">Cast</string>
 </resources>

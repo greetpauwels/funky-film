@@ -11,15 +11,11 @@ namespace Funky_Film
 		public const string UrlMovie = UrlBase + "movie/";
 		public const string UrlPopular = UrlMovie + "popular" + ApiKey;
 		public const string UrlUpcoming = UrlMovie + "upcoming" + ApiKey;
+		public const string UrlPerson = UrlBase + "person/";
 		public const string UrlImage = "http://cf2.imgobject.com/t/p/";
 		public const string UrlImage92 = "http://cf2.imgobject.com/t/p/w92";
 		public const string UrlImage154 = "http://cf2.imgobject.com/t/p/w154";
-
-
-		public const string TestSearch = "Batman";
-		//public const string Session = "&session_id=";
-		//public const string Token = "&request_token=";
-		public const string Tag = "FunkyFilmApplication";
+		
 	}
 }
 

@@ -13,12 +13,13 @@ using Funky_Film.Tasks;
 using Funky_Film.Android.Tasks;
 using System.Threading.Tasks;
 using Android;
+using Funky_Film.Android.UI;
 
 
 namespace Funky_Film
 {
 	[Activity]			
-	public class DetailActivity : Activity
+	public class DetailActivity : Activity, DetailActorFragment.CallBacks
 	{
 
 		int movieId;
@@ -53,8 +54,8 @@ namespace Funky_Film
 			Fragment movieTab = new DetailFragment ();
 			Fragment actorTab = new DetailActorFragment ();
 
-			AddTab ("Movie", movieTab);
-			AddTab ("Actors", actorTab);
+			AddTab (this.Resources.GetString (Resource.String.about), movieTab);
+			AddTab (this.Resources.GetString (Resource.String.cast_list), actorTab);
 
 		}
 
@@ -81,5 +82,13 @@ namespace Funky_Film
 			this.ActionBar.AddTab (tab);
 		}
 
+		public void OnItemSelected(int actorId){
+			Intent toPerson = new Intent (this, typeof(PersonActivity));
+			toPerson.PutExtra ("personId", actorId);
+			StartActivity (toPerson);
+		}
 
 
+	}
+
+}
