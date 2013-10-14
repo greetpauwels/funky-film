@@ -72,7 +72,7 @@ namespace Funky_Film.Android.UI
 
 			context = Activity.ApplicationContext;
 			res = context.Resources;
-			connectionCheck = new ConnectivityChecker (Activity.ApplicationContext);
+			connectionCheck = new ConnectivityChecker (context);
 			intent = Activity.Intent;
 
 			if (Intent.ActionSearch.Equals (intent.Action)) {
@@ -84,7 +84,7 @@ namespace Funky_Film.Android.UI
 			} else {
 				url = Const.UrlUpcoming;
 				listTitle = res.GetString (Resource.String.search_fragment_title_upcoming);
-				emptyString = Resources.GetString (Resource.String.empty_no_connection);
+				emptyString = res.GetString (Resource.String.empty_no_connection);
 			}
 
 		}

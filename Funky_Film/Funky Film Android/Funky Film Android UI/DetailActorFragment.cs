@@ -18,25 +18,33 @@ using System.Threading.Tasks;
 using Java.Lang;
 using System.Net.Mime;
 using System.Resources;
+using Funky_Film.Android.Util;
 
 namespace Funky_Film
 {
 	public class DetailActorFragment : Fragment
 	{
 
+		Context context;
 		DetailActorAdapter adapter;
-
+		CallBacks listener;
 		Intent intent;
+		ConnectivityChecker connectionCheck;
 
 		private int movieId;
-		private View view;
-
-		ListView movie_cnt_list;
-
 		Cast cast;
 		Actor[] actors;
+
 		string url;
-		CallBacks listener;
+
+		private View view;
+		ListView movie_cnt_list;
+		LinearLayout emptyLayout;
+		TextView emptyVw;
+		Button reloadBttn;
+
+
+
 
 		public interface CallBacks{
 			void OnItemSelected (int actorId);
@@ -54,6 +62,8 @@ namespace Funky_Film
 		public override void OnCreate (Bundle savedInstanceState)
 		{
 			base.OnCreate (savedInstanceState);
+			context = Activity.ApplicationContext;
+			connectionCheck = new ConnectivityChecker (context);
 			intent = Activity.Intent;
 			movieId = intent.GetIntExtra ("movieId", 0);
 			url = Const.UrlMovie + movieId + "/casts" + Const.ApiKey;
@@ -63,14 +73,28 @@ namespace Funky_Film
 		public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
 
 			view = inflater.Inflate (Resource.Layout.CrewFragment, container, false);
-
-			NewSearch ();
-
 			movie_cnt_list = (ListView)view.FindViewById (Resource.Id.add_cnt_list);
+			emptyLayout = (LinearLayout)view.FindViewById (Resource.Id.emptyView);
+			emptyVw = (TextView)view.FindViewById (Resource.Id.empty);
+			reloadBttn = (Button)view.FindViewById (Resource.Id.reload);
 
 			movie_cnt_list.ItemClick += OnListItemClick;
 
+			ProceedByConnectionStatus ();
+
 			return view;
+		}
+
+		private void ProceedByConnectionStatus(){
+			if (connectionCheck.IsConnected()) {
+				NewSearch();
+			} else {
+				Toast.MakeText (Activity.ApplicationContext, "No internet connection",ToastLength.Long).Show ();
+				movie_cnt_list.EmptyView = emptyLayout;
+				reloadBttn.Click += delegate {
+					ProceedByConnectionStatus ();
+				};
+			}
 		}
 
 

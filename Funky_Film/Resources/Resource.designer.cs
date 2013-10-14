@@ -103,11 +103,11 @@ namespace Funky_Film
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f090036
-			public const int action_search = 2131296310;
+			// aapt resource value: 0x7f090031
+			public const int action_search = 2131296305;
 			
-			// aapt resource value: 0x7f090035
-			public const int action_settings = 2131296309;
+			// aapt resource value: 0x7f090030
+			public const int action_settings = 2131296304;
 			
 			// aapt resource value: 0x7f090001
 			public const int actor_name = 2131296257;
@@ -130,143 +130,128 @@ namespace Funky_Film
 			// aapt resource value: 0x7f090004
 			public const int credit_title = 2131296260;
 			
-			// aapt resource value: 0x7f090009
-			public const int crew_job = 2131296265;
-			
-			// aapt resource value: 0x7f090008
-			public const int crew_name = 2131296264;
-			
-			// aapt resource value: 0x7f090007
-			public const int crew_thumbnail = 2131296263;
-			
-			// aapt resource value: 0x7f090018
-			public const int detail_adult = 2131296280;
-			
-			// aapt resource value: 0x7f090017
-			public const int detail_cnt_adult = 2131296279;
-			
-			// aapt resource value: 0x7f09001c
-			public const int detail_cnt_genres = 2131296284;
-			
-			// aapt resource value: 0x7f09001a
-			public const int detail_cnt_keywords = 2131296282;
-			
-			// aapt resource value: 0x7f090010
-			public const int detail_cnt_overview = 2131296272;
-			
-			// aapt resource value: 0x7f090012
-			public const int detail_cnt_releasedate = 2131296274;
-			
-			// aapt resource value: 0x7f090013
-			public const int detail_cnt_runtime = 2131296275;
-			
-			// aapt resource value: 0x7f090016
-			public const int detail_cnt_status = 2131296278;
-			
-			// aapt resource value: 0x7f09001b
-			public const int detail_genres = 2131296283;
-			
-			// aapt resource value: 0x7f090019
-			public const int detail_keywords = 2131296281;
-			
-			// aapt resource value: 0x7f09000f
-			public const int detail_overview = 2131296271;
-			
 			// aapt resource value: 0x7f09000c
-			public const int detail_poster = 2131296268;
-			
-			// aapt resource value: 0x7f090011
-			public const int detail_releasedate = 2131296273;
-			
-			// aapt resource value: 0x7f090014
-			public const int detail_runtime = 2131296276;
-			
-			// aapt resource value: 0x7f090015
-			public const int detail_status = 2131296277;
-			
-			// aapt resource value: 0x7f09000e
-			public const int detail_tagline = 2131296270;
-			
-			// aapt resource value: 0x7f09000d
-			public const int detail_title = 2131296269;
-			
-			// aapt resource value: 0x7f090033
-			public const int empty = 2131296307;
-			
-			// aapt resource value: 0x7f090032
-			public const int emptyView = 2131296306;
-			
-			// aapt resource value: 0x7f090031
-			public const int list = 2131296305;
-			
-			// aapt resource value: 0x7f090030
-			public const int list_title = 2131296304;
-			
-			// aapt resource value: 0x7f09000a
-			public const int movie_container = 2131296266;
-			
-			// aapt resource value: 0x7f09002f
-			public const int movie_search = 2131296303;
-			
-			// aapt resource value: 0x7f09001d
-			public const int myButton = 2131296285;
-			
-			// aapt resource value: 0x7f090022
-			public const int person_bio = 2131296290;
-			
-			// aapt resource value: 0x7f090023
-			public const int person_bio_cnt = 2131296291;
-			
-			// aapt resource value: 0x7f090024
-			public const int person_birthdate = 2131296292;
-			
-			// aapt resource value: 0x7f090025
-			public const int person_birthdate_cnt = 2131296293;
-			
-			// aapt resource value: 0x7f090028
-			public const int person_birthplace = 2131296296;
-			
-			// aapt resource value: 0x7f090029
-			public const int person_birthplace_cnt = 2131296297;
-			
-			// aapt resource value: 0x7f09001e
-			public const int person_container = 2131296286;
-			
-			// aapt resource value: 0x7f090026
-			public const int person_deathdate = 2131296294;
-			
-			// aapt resource value: 0x7f090027
-			public const int person_deathdate_cnt = 2131296295;
-			
-			// aapt resource value: 0x7f09002a
-			public const int person_homepage = 2131296298;
-			
-			// aapt resource value: 0x7f09002b
-			public const int person_homepage_cnt = 2131296299;
-			
-			// aapt resource value: 0x7f090021
-			public const int person_name = 2131296289;
-			
-			// aapt resource value: 0x7f090020
-			public const int person_poster = 2131296288;
-			
-			// aapt resource value: 0x7f09002e
-			public const int rating = 2131296302;
-			
-			// aapt resource value: 0x7f090034
-			public const int reload = 2131296308;
+			public const int crew_job = 2131296268;
 			
 			// aapt resource value: 0x7f09000b
-			public const int scrollView1 = 2131296267;
+			public const int crew_name = 2131296267;
 			
-			// aapt resource value: 0x7f09001f
-			public const int scrollView2 = 2131296287;
+			// aapt resource value: 0x7f09000a
+			public const int crew_thumbnail = 2131296266;
 			
-			// aapt resource value: 0x7f09002c
-			public const int thumbnail = 2131296300;
+			// aapt resource value: 0x7f09002f
+			public const int detail_cnt_adult = 2131296303;
+			
+			// aapt resource value: 0x7f090013
+			public const int detail_cnt_overview = 2131296275;
+			
+			// aapt resource value: 0x7f090015
+			public const int detail_cnt_releasedate = 2131296277;
+			
+			// aapt resource value: 0x7f090016
+			public const int detail_cnt_runtime = 2131296278;
+			
+			// aapt resource value: 0x7f090019
+			public const int detail_cnt_status = 2131296281;
+			
+			// aapt resource value: 0x7f090012
+			public const int detail_overview = 2131296274;
+			
+			// aapt resource value: 0x7f09000f
+			public const int detail_poster = 2131296271;
+			
+			// aapt resource value: 0x7f090014
+			public const int detail_releasedate = 2131296276;
+			
+			// aapt resource value: 0x7f090017
+			public const int detail_runtime = 2131296279;
+			
+			// aapt resource value: 0x7f090018
+			public const int detail_status = 2131296280;
+			
+			// aapt resource value: 0x7f090011
+			public const int detail_tagline = 2131296273;
+			
+			// aapt resource value: 0x7f090010
+			public const int detail_title = 2131296272;
+			
+			// aapt resource value: 0x7f090008
+			public const int empty = 2131296264;
+			
+			// aapt resource value: 0x7f090007
+			public const int emptyView = 2131296263;
+			
+			// aapt resource value: 0x7f09002e
+			public const int list = 2131296302;
 			
 			// aapt resource value: 0x7f09002d
-			public const int title = 2131296301;
+			public const int list_title = 2131296301;
+			
+			// aapt resource value: 0x7f09000d
+			public const int movie_container = 2131296269;
+			
+			// aapt resource value: 0x7f09002c
+			public const int movie_search = 2131296300;
+			
+			// aapt resource value: 0x7f09001a
+			public const int myButton = 2131296282;
+			
+			// aapt resource value: 0x7f09001f
+			public const int person_bio = 2131296287;
+			
+			// aapt resource value: 0x7f090020
+			public const int person_bio_cnt = 2131296288;
+			
+			// aapt resource value: 0x7f090021
+			public const int person_birthdate = 2131296289;
+			
+			// aapt resource value: 0x7f090022
+			public const int person_birthdate_cnt = 2131296290;
+			
+			// aapt resource value: 0x7f090025
+			public const int person_birthplace = 2131296293;
+			
+			// aapt resource value: 0x7f090026
+			public const int person_birthplace_cnt = 2131296294;
+			
+			// aapt resource value: 0x7f09001b
+			public const int person_container = 2131296283;
+			
+			// aapt resource value: 0x7f090023
+			public const int person_deathdate = 2131296291;
+			
+			// aapt resource value: 0x7f090024
+			public const int person_deathdate_cnt = 2131296292;
+			
+			// aapt resource value: 0x7f090027
+			public const int person_homepage = 2131296295;
+			
+			// aapt resource value: 0x7f090028
+			public const int person_homepage_cnt = 2131296296;
+			
+			// aapt resource value: 0x7f09001e
+			public const int person_name = 2131296286;
+			
+			// aapt resource value: 0x7f09001d
+			public const int person_poster = 2131296285;
+			
+			// aapt resource value: 0x7f09002b
+			public const int rating = 2131296299;
+			
+			// aapt resource value: 0x7f090009
+			public const int reload = 2131296265;
+			
+			// aapt resource value: 0x7f09000e
+			public const int scrollView1 = 2131296270;
+			
+			// aapt resource value: 0x7f09001c
+			public const int scrollView2 = 2131296284;
+			
+			// aapt resource value: 0x7f090029
+			public const int thumbnail = 2131296297;
+			
+			// aapt resource value: 0x7f09002a
+			public const int title = 2131296298;
 			
 			static Id()
 			{
