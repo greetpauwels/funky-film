@@ -46,7 +46,7 @@ namespace Funky_Film.Android.UI
 
 		
 		public interface CallBacks{
-			void OnItemSelected (int movieId);
+			void OnItemSelected (int movieId, string movieName);
 		}
 
 		public override void OnAttach(Activity activity){
@@ -139,7 +139,8 @@ namespace Funky_Film.Android.UI
 
 		void OnListItemClick(object sender, AdapterView.ItemClickEventArgs e){
 			int itemId = creditsAsCast.ElementAt (e.Position).id;
-			listener.OnItemSelected (itemId);
+			string itemName = creditsAsCast.ElementAt (e.Position).original_title;
+			listener.OnItemSelected (itemId, itemName);
 		}
 
 	}

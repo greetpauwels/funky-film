@@ -49,7 +49,7 @@ namespace Funky_Film.Android.UI
 		
 
 		public interface CallBacks{
-			void OnItemSelected (int movieId);
+			void OnItemSelected (int movieId, string movieName);
 		}
 
 		public SearchFragment(){
@@ -115,7 +115,8 @@ namespace Funky_Film.Android.UI
 	void OnListItemClick(object sender, AdapterView.ItemClickEventArgs e){
 			//Movie movie = this.adapter.GetItem (e.Position);
 			int itemId = movies.ElementAt (e.Position).id;
-			listener.OnItemSelected (itemId);
+			string itemName = movies.ElementAt (e.Position).original_title;
+			listener.OnItemSelected (itemId, itemName);
 		}
 
 	private void ProceedByConnectionStatus(){

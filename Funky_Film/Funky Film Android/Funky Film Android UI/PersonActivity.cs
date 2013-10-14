@@ -15,15 +15,19 @@ namespace Funky_Film.Android.UI
 	public class PersonActivity : Activity, PersonAsCastFragment.CallBacks
 	{
 		int actorId;
+		string actorName;
 		
 
 		protected override void OnCreate (Bundle bundle)
 		{
 			base.OnCreate (bundle);
 
-			SetContentView (Resource.Layout.PersonActivity);
 			Intent intent = Intent;
-			actorId = intent.GetIntExtra ("actorId", 0);
+			actorId = intent.GetIntExtra ("personId", 0);
+			actorName = intent.GetStringExtra ("personName");
+			this.Title = actorName;
+			SetContentView (Resource.Layout.PersonActivity);
+
 
 			ActionBar actionBar = ActionBar;
 			actionBar.NavigationMode = ActionBarNavigationMode.Tabs;
@@ -60,9 +64,10 @@ namespace Funky_Film.Android.UI
 		}
 
 
-		public void OnItemSelected(int movieId){
+		public void OnItemSelected(int movieId, string movieName){
 			Intent toDetail = new Intent (this, typeof(DetailActivity));
 			toDetail.PutExtra ("movieId", movieId);
+			toDetail.PutExtra ("movieName", movieName);
 			StartActivity (toDetail);
 		}
 	}

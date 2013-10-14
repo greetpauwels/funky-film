@@ -47,7 +47,7 @@ namespace Funky_Film
 
 
 		public interface CallBacks{
-			void OnItemSelected (int actorId);
+			void OnItemSelected (int actorId, string actorName);
 		}
 
 		public override void OnAttach(Activity activity){
@@ -137,7 +137,8 @@ namespace Funky_Film
 
 		void OnListItemClick(object sender, AdapterView.ItemClickEventArgs e){
 			int itemId = actors [e.Position].id;
-			listener.OnItemSelected (itemId);
+			string itemName = actors [e.Position].name;
+			listener.OnItemSelected (itemId, itemName);
 		}
 
 	}

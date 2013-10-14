@@ -43,9 +43,6 @@ namespace Funky_Film
 		TextView movie_status;
 		TextView movie_cnt_status;
 		Button reloadBttn;
-		//	TextView movie_cnt_adult;
-		//	TextView movie_cnt_keywords;
-		//	TextView movie_cnt_genres;
 
 		public override void OnCreate (Bundle bundle)
 		{
@@ -77,14 +74,7 @@ namespace Funky_Film
 			reloadBttn = (Button)view.FindViewById (Resource.Id.reload);
 			emptyLayout = (LinearLayout)view.FindViewById (Resource.Id.emptyView);
 
-			//			movie_cnt_adult = (TextView) FindViewById (Resource.Id.detail_cnt_adult);
-			//movie_cnt_keywords = FindViewById (Resource.Id.detail_cnt_keywords);
-			//movie_cnt_genres = FindViewById (Resource.Id.detail_cnt_genres);
-
 			ProceedByConnectionStatus ();
-
-			//Newdetails ();
-			//NewCastDetails ();
 
 			return view;
 
@@ -126,7 +116,6 @@ namespace Funky_Film
 			movie_cnt_runtime.Text =Convert.ToString (movie.runtime);
 			movie_status.Text=res.GetString (Resource.String.status);
 			movie_cnt_status.Text = movie.status;
-			//			movie_cnt_adult.Text = movie.adult;
 
 			if (movie.poster_path != null) {
 				string url = Const.UrlImage154 + movie.poster_path;
@@ -136,21 +125,6 @@ namespace Funky_Film
 			}
 
 		}
-
-
-		private async Task<Cast> LoadCastDetails(){
-			string urlCast = Const.UrlMovie + movieId + "/casts" + Const.ApiKey;
-			cast = await new SearchResultLoader ().GetCastDetail (urlCast);
-			return cast;
-		}
-
-		private async void NewCastDetails(){
-			await LoadCastDetails ();
-
-			movie.cast = cast.cast;
-			movie.crew = cast.crew;
-		}
-
 
 	}
 }

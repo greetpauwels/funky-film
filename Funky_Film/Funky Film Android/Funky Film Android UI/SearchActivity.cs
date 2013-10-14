@@ -8,6 +8,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Android.Graphics;
 
 namespace Funky_Film.Android.UI 
 {
@@ -35,9 +36,10 @@ namespace Funky_Film.Android.UI
 			return true;
 		}
 
-		public void OnItemSelected(int movieId){
+		public void OnItemSelected(int movieId, string movieName){
 			var toDetail = new Intent (this, typeof(DetailActivity));
 			toDetail.PutExtra ("movieId", movieId);
+			toDetail.PutExtra ("movieName", movieName);
 			StartActivity (toDetail);
 		}
 	}

@@ -23,6 +23,7 @@ namespace Funky_Film
 	{
 
 		int movieId;
+		string movieName;
 
 		Movie movie = new Movie();
 
@@ -34,10 +35,12 @@ namespace Funky_Film
 		protected override void OnCreate (Bundle savedInstanceState)
 		{
 		base.OnCreate (savedInstanceState);
-
-			SetContentView (Resource.Layout.DetailActivity);
 			Intent intent = Intent;
 			movieId = intent.GetIntExtra ("movieId", 0);
+			movieName = intent.GetStringExtra ("movieName");
+			this.Title = movieName;
+			SetContentView (Resource.Layout.DetailActivity);
+
 
 		//	detailPagerAdapter = new DetailPagerAdapter (FragmentManager, movieId);
 		//	viewPager = (ViewPager)FindViewById (Resource.Id.movie_container);
@@ -82,9 +85,10 @@ namespace Funky_Film
 			this.ActionBar.AddTab (tab);
 		}
 
-		public void OnItemSelected(int actorId){
+		public void OnItemSelected(int actorId, string actorName){
 			Intent toPerson = new Intent (this, typeof(PersonActivity));
 			toPerson.PutExtra ("personId", actorId);
+			toPerson.PutExtra ("personName", actorName);
 			StartActivity (toPerson);
 		}
 
