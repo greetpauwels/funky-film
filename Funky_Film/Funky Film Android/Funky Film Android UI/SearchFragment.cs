@@ -26,17 +26,26 @@ namespace Funky_Film.Android.UI
 	public class SearchFragment : Fragment
 	{
 		
+		Context context;
+		Resources res;
 		Intent intent;
 		SearchListAdapter adapter;
+		CallBacks listener;
+		ConnectivityChecker connectionCheck;
+
 		MovieList movieList;
 		List<Movie> movies = new List<Movie>();
+
 		TextView title;
 		ListView list;
+		LinearLayout emptyLayout;
+		TextView emptyVw;
+		Button reloadBttn;
+
 		string query;
 		string url;
 		string listTitle;
-		CallBacks listener;
-		ConnectivityChecker connectionCheck;
+		string emptyString;
 		
 
 		public interface CallBacks{
@@ -48,11 +57,6 @@ namespace Funky_Film.Android.UI
 
 		public override void OnAttach(Activity activity){
 			base.OnAttach (activity);
-
-			/*if(!(activity.GetType () == typeof( CallBacks))){
-				throw new IllegalArgumentException("Activity should implement Callback");
-			}*/
-
 			listener = (CallBacks) activity;
 		}
 
@@ -66,19 +70,21 @@ namespace Funky_Film.Android.UI
 		{
 			base.OnCreate (savedInstanceState);
 
-			Context context = Activity.ApplicationContext;
-			Resources res = context.Resources;
+			context = Activity.ApplicationContext;
+			res = context.Resources;
 			connectionCheck = new ConnectivityChecker (Activity.ApplicationContext);
-
 			intent = Activity.Intent;
+
 			if (Intent.ActionSearch.Equals (intent.Action)) {
 				Log.Info ("SearchFragment", "is search action");
 				query = intent.GetStringExtra (SearchManager.Query);
 				url = Const.UrlSearch + query;
 				listTitle = Resources.GetString (Resource.String.search_fragment_title_search);
+				emptyString = Resources.GetString (Resource.String.empty_search);
 			} else {
 				url = Const.UrlUpcoming;
 				listTitle = res.GetString (Resource.String.search_fragment_title_upcoming);
+				emptyString = Resources.GetString (Resource.String.empty_no_connection);
 			}
 
 		}
@@ -88,44 +94,41 @@ namespace Funky_Film.Android.UI
 		{
 			View view = inflater.Inflate (Resource.Layout.SearchFragment, container, false);
 
-			if (connectionCheck.IsConnected()) {
-					NewSearch();
-			} else {
-				Toast.MakeText (Activity.ApplicationContext, "No internet connection",ToastLength.Long).Show ();
-			}
-
-
-
 			title = (TextView)view.FindViewById (Resource.Id.list_title);
+			list = (ListView)view.FindViewById (Resource.Id.list);
+			emptyLayout = (LinearLayout)view.FindViewById (Resource.Id.emptyView);
+			emptyVw = (TextView)view.FindViewById (Resource.Id.empty);
+			reloadBttn = (Button)view.FindViewById (Resource.Id.reload);
+
+			ProceedByConnectionStatus ();
+
+			emptyVw.Text = emptyString;
 			title.Text = listTitle;
 
-			list = (ListView)view.FindViewById (Resource.Id.list);
-			Log.Info ("SearchFragment - onCreateView", Convert.ToString (movies.Count) );
-
-			LinearLayout emptyLayout = (LinearLayout)view.FindViewById (Resource.Id.emptyView);
-			TextView empty = (TextView)view.FindViewById (Resource.Id.empty);
-			Button reloadButton = (Button)view.FindViewById (Resource.Id.reload);
-			reloadButton.Click += delegate {
-			NewSearch ();
-			};
-
-			//emptyLayout.AddView (empty);
-			//emptyLayout.AddView (reloadButton);
-
-			list.EmptyView = emptyLayout;
-
-			//list.EmptyView = empty;
-
 			list.ItemClick += OnListItemClick;
+
+			Log.Info ("SearchFragment - onCreateView", Convert.ToString (movies.Count) );
 
 			return view;
 		}
 
-		void OnListItemClick(object sender, AdapterView.ItemClickEventArgs e){
+	void OnListItemClick(object sender, AdapterView.ItemClickEventArgs e){
 			//Movie movie = this.adapter.GetItem (e.Position);
 			int itemId = movies.ElementAt (e.Position).id;
 			listener.OnItemSelected (itemId);
 		}
+
+	private void ProceedByConnectionStatus(){
+			if (connectionCheck.IsConnected()) {
+				NewSearch();
+			} else {
+				Toast.MakeText (Activity.ApplicationContext, "No internet connection",ToastLength.Long).Show ();
+				list.EmptyView = emptyLayout;
+				reloadBttn.Click += delegate {
+						ProceedByConnectionStatus ();
+				};
+			}
+	}
 
 	private async Task<List<Movie>> RunSearch(){
 
@@ -146,17 +149,17 @@ namespace Funky_Film.Android.UI
 			Log.Info ("SearchFragment", "NewSearchIN" );
 
 			movies = await RunSearch ();
-		//	Task searchResultsAsList = RunSearch ();
-		//	movies = await searchResultsAsList;
+
 			Log.Info ("SearchFragment", "NewSearchMID" );
 			Log.Info ("SearchFragment", " - newSearchMID "+Convert.ToString (movies.Count) ); 
 
 			adapter = new SearchListAdapter (Activity.ApplicationContext, movies);
 			list.Adapter = adapter;
 
-
 			if (movies.Count == 0) {
 				Toast.MakeText (Activity.ApplicationContext, Resource.String.no_result, ToastLength.Long).Show ();
+				list.EmptyView = emptyLayout;
+				reloadBttn.Visibility = ViewStates.Invisible;
 			}
 
 			Log.Info ("SearchFragment", "NewSearchOUT" );
