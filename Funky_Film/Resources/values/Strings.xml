@@ -4,7 +4,9 @@
 	<string name="start_app">Click here to start</string>
 	<string name="app_name">Funky Film</string>
 	<string name="action_settings">Settings</string>
-	<string name="empty_search">Enter a title in the search box above</string>
+	<string name="empty_search">Retry loading \nor enter a new title in the search box above</string>
+	<string name="empty_no_connection">Check your connection \nand retry</string>
+	<string name="retry">Retry</string>
 	<string name="title_activity_search">Search new film</string>
 	<string name="search_hint">Search film title</string>
 	<string name="no_result">No results found. \nPlease try again</string>

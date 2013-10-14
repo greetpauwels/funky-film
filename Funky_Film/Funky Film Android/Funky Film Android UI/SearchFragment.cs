@@ -19,6 +19,7 @@ using System.Threading.Tasks;
 using Java.Lang;
 using System.Net.Mime;
 using System.Resources;
+using Funky_Film.Android.Util;
 
 namespace Funky_Film.Android.UI 
 {
@@ -35,6 +36,7 @@ namespace Funky_Film.Android.UI
 		string url;
 		string listTitle;
 		CallBacks listener;
+		ConnectivityChecker connectionCheck;
 		
 
 		public interface CallBacks{
@@ -66,6 +68,7 @@ namespace Funky_Film.Android.UI
 
 			Context context = Activity.ApplicationContext;
 			Resources res = context.Resources;
+			connectionCheck = new ConnectivityChecker (Activity.ApplicationContext);
 
 			intent = Activity.Intent;
 			if (Intent.ActionSearch.Equals (intent.Action)) {
@@ -84,11 +87,14 @@ namespace Funky_Film.Android.UI
 		public override View OnCreateView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
 		{
 			View view = inflater.Inflate (Resource.Layout.SearchFragment, container, false);
-			//TODO Connection check to prevent crashes
-			if (url != null) {
-				NewSearch();
 
+			if (connectionCheck.IsConnected()) {
+					NewSearch();
+			} else {
+				Toast.MakeText (Activity.ApplicationContext, "No internet connection",ToastLength.Long).Show ();
 			}
+
+
 
 			title = (TextView)view.FindViewById (Resource.Id.list_title);
 			title.Text = listTitle;
@@ -96,8 +102,19 @@ namespace Funky_Film.Android.UI
 			list = (ListView)view.FindViewById (Resource.Id.list);
 			Log.Info ("SearchFragment - onCreateView", Convert.ToString (movies.Count) );
 
+			LinearLayout emptyLayout = (LinearLayout)view.FindViewById (Resource.Id.emptyView);
 			TextView empty = (TextView)view.FindViewById (Resource.Id.empty);
-			list.EmptyView = empty;
+			Button reloadButton = (Button)view.FindViewById (Resource.Id.reload);
+			reloadButton.Click += delegate {
+			NewSearch ();
+			};
+
+			//emptyLayout.AddView (empty);
+			//emptyLayout.AddView (reloadButton);
+
+			list.EmptyView = emptyLayout;
+
+			//list.EmptyView = empty;
 
 			list.ItemClick += OnListItemClick;
 
@@ -145,9 +162,6 @@ namespace Funky_Film.Android.UI
 			Log.Info ("SearchFragment", "NewSearchOUT" );
 		}
 		
-
-	}
-
-
+}
 }
 
