@@ -7,6 +7,7 @@ using Android.Content;
 using Android.OS;
 using Android.Runtime;
 using Android.Util;
+using Android.Content.Res;
 using Android.Views;
 using Android.Widget;
 using Funky_Film.Android.Adapter;
@@ -14,28 +15,36 @@ using Java.Util.Zip;
 using Funky_Film.Model;
 using System.Threading.Tasks;
 using Funky_Film.Tasks;
+using Funky_Film.Android.Util;
+using System.Resources;
 
 namespace Funky_Film.Android.UI
 {
 	public class PersonAsCastFragment : Fragment
 	{
 
-		CallBacks listener;
-
 		Intent intent;
+		Context context;
+		Resources res;
+		ConnectivityChecker connectionCheck;
 
-		View view;
-		ListView listView;
-		TextView title;
-
-		int actorId;
-		string url;
-	
 		CreditsCastAdapter adapter;
+		CallBacks listener;
 
 		Credits credits;
 		List<CastCredit> creditsAsCast;
 
+		View view;
+		ListView listView;
+		TextView title;
+		LinearLayout emptyLayout;
+		Button reloadBttn;
+
+		int actorId;
+		string url;
+	
+
+		
 		public interface CallBacks{
 			void OnItemSelected (int movieId);
 		}
@@ -52,9 +61,17 @@ namespace Funky_Film.Android.UI
 		public override void OnCreate (Bundle savedInstanceState)
 		{
 			base.OnCreate (savedInstanceState);
+
+			context = Activity.ApplicationContext;
+			res = context.Resources;
+
+			connectionCheck = new ConnectivityChecker (context);
+
 			intent = Activity.Intent;
 			actorId = intent.GetIntExtra ("personId", 0);
+
 			url = Const.UrlBase+"person/"+actorId+"/credits"+Const.ApiKey;
+
 			Log.Info ("PersonAsCast", "Person Credits RL= " + url);
 
 		}
@@ -63,15 +80,29 @@ namespace Funky_Film.Android.UI
 
 			view = inflater.Inflate (Resource.Layout.SearchFragment, container, false);
 
-			NewCreditsAsCast ();
-
+			emptyLayout = (LinearLayout)view.FindViewById (Resource.Id.emptyView);
+			reloadBttn = (Button)view.FindViewById (Resource.Id.reload);
 			title = (TextView)view.FindViewById (Resource.Id.list_title);
 			title.Visibility = ViewStates.Gone;
 
 			listView = (ListView)view.FindViewById (Resource.Id.list);
 			listView.ItemClick += OnListItemClick;
 
+			ProceedByConnectionStatus ();
+
 			return view;
+		}
+
+		private void ProceedByConnectionStatus(){
+			if (connectionCheck.IsConnected()) {
+				NewCreditsAsCast();
+			} else {
+				Toast.MakeText (Activity.ApplicationContext, "No internet connection",ToastLength.Long).Show ();
+				listView.EmptyView = emptyLayout;
+				reloadBttn.Click += delegate {
+					ProceedByConnectionStatus ();
+				};
+			}
 		}
 
 

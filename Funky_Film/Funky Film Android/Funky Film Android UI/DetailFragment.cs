@@ -20,16 +20,16 @@ namespace Funky_Film
 {
 	public class DetailFragment : Fragment
 	{
-		int movieId;
 		Intent intent; 
 		Context context;
 		Resources res;
 		ConnectivityChecker connectionCheck;
+
 		Movie movie = new Movie();
 		Cast cast;
+		int movieId;
 
-		private View view;
-
+		View view;
 		LinearLayout emptyLayout;
 		ImageView movie_poster;
 		TextView movie_title;
@@ -50,6 +50,8 @@ namespace Funky_Film
 		public override void OnCreate (Bundle bundle)
 		{
 			base.OnCreate (bundle);
+			intent = Activity.Intent;
+			movieId = intent.GetIntExtra ("movieId", 0);
 			context = Activity.ApplicationContext;
 			res = context.Resources;
 			connectionCheck = new ConnectivityChecker (context);
@@ -60,10 +62,6 @@ namespace Funky_Film
 		{
 
 			view = inflater.Inflate (Resource.Layout.DetailFragment, container, false);
-
-			intent = Activity.Intent;
-
-			movieId = intent.GetIntExtra ("movieId", 0);
 
 			movie_poster = (ImageView) view.FindViewById (Resource.Id.detail_poster);
 			movie_title = (TextView) view.FindViewById (Resource.Id.detail_title);

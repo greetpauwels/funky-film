@@ -19,8 +19,7 @@
             android:layout_width="@dimen/poster_size"
             android:layout_height="@dimen/poster_size"
             android:layout_alignParentTop="true"
-            android:scaleType="centerInside"
-            android:src="@drawable/default_crew_image" />
+            android:scaleType="centerInside" />
         <TextView
             android:id="@+id/person_name"
             android:layout_width="wrap_content"
@@ -28,15 +27,13 @@
             android:layout_alignBottom="@id/person_poster"
             android:layout_marginBottom="21dp"
             android:layout_toRightOf="@id/person_poster"
-            android:text="Large Text"
             android:textAppearance="?android:attr/textAppearanceLarge" />
         <TextView
             android:id="@+id/person_bio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignLeft="@id/person_poster"
-            android:layout_below="@id/person_poster"
-            android:text="@string/bio" />
+            android:layout_below="@id/person_poster" />
         <TextView
             android:id="@+id/person_bio_cnt"
             android:layout_width="wrap_content"
@@ -51,8 +48,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignLeft="@id/person_poster"
-            android:layout_below="@id/person_bio_cnt"
-            android:text="@string/birthday" />
+            android:layout_below="@id/person_bio_cnt" />
         <TextView
             android:id="@+id/person_birthdate_cnt"
             android:layout_width="wrap_content"
@@ -66,8 +62,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignLeft="@id/person_poster"
-            android:layout_below="@id/person_birthdate"
-            android:text="@string/deathday" />
+            android:layout_below="@id/person_birthdate" />
         <TextView
             android:id="@+id/person_deathdate_cnt"
             android:layout_width="wrap_content"
@@ -81,8 +76,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignLeft="@id/person_poster"
-            android:layout_below="@id/person_deathdate"
-            android:text="@string/birthplace" />
+            android:layout_below="@id/person_deathdate" />
         <TextView
             android:id="@+id/person_birthplace_cnt"
             android:layout_width="wrap_content"
@@ -96,8 +90,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignLeft="@id/person_poster"
-            android:layout_below="@id/person_birthplace"
-            android:text="@string/homepage" />
+            android:layout_below="@id/person_birthplace" />
         <TextView
             android:id="@+id/person_homepage_cnt"
             android:autoLink="web"
@@ -107,5 +100,25 @@
             android:layout_alignBottom="@id/person_homepage"
             android:layout_toRightOf="@id/person_homepage"
             android:textSize="@dimen/content_txt_size" />
+        <LinearLayout
+            android:id="@+id/emptyView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/empty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/empty_no_connection"
+                android:gravity="center" />
+            <Button
+                android:id="@+id/reload"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/retry" />
+        </LinearLayout>
     </RelativeLayout>
 </ScrollView>
