@@ -109,7 +109,13 @@ namespace Funky_Film
 			await LoadDetails ();
 
 			movie_title.Text = movie.original_title;
-			movie_tagline.Text = movie.tagline;
+
+			if (movie.tagline != null && movie.tagline!="") {
+				movie_tagline.Text = movie.tagline;
+			} else {
+				movie_tagline.Visibility = ViewStates.Gone;
+			}
+
 			if (movie.vote_count != 0) {
 				movie_cnt_rating.Text = Convert.ToString (movie.vote_average);
 				movie_rating.Text = res.GetString (Resource.String.rating);
@@ -117,11 +123,20 @@ namespace Funky_Film
 				movie_cnt_rating.Visibility = ViewStates.Gone;
 				movie_rating.Visibility = ViewStates.Gone;
 			}
+
 			movie_cnt_overview.Text = movie.overview;
+
 			movie_releasedate.Text = res.GetString (Resource.String.release_date);
 			movie_cnt_releasedate.Text = UIUtil.ConvertDateToEuropean (movie.release_date);
-			movie_runtime.Text=res.GetString (Resource.String.minutes);
-			movie_cnt_runtime.Text =Convert.ToString (movie.runtime);
+
+			if (movie.runtime != null && movie.runtime != 0) {
+				movie_runtime.Text = res.GetString (Resource.String.minutes);
+				movie_cnt_runtime.Text = Convert.ToString (movie.runtime);
+			} else {
+				movie_runtime.Visibility = ViewStates.Gone;
+				movie_cnt_runtime.Visibility = ViewStates.Gone;
+			}
+
 			movie_status.Text=res.GetString (Resource.String.status);
 			movie_cnt_status.Text = movie.status;
 
