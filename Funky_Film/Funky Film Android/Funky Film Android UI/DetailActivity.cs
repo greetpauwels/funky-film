@@ -18,7 +18,8 @@ using Funky_Film.Android.UI;
 
 namespace Funky_Film
 {
-	[Activity]			
+	[Activity]	
+			
 	public class DetailActivity : Activity, DetailActorFragment.CallBacks
 	{
 
@@ -39,7 +40,11 @@ namespace Funky_Film
 			movieId = intent.GetIntExtra ("movieId", 0);
 			movieName = intent.GetStringExtra ("movieName");
 			this.Title = movieName;
+			ActionBar.SetDisplayHomeAsUpEnabled (true);
+			ActionBar.SetHomeButtonEnabled (true);
 			SetContentView (Resource.Layout.DetailActivity);
+
+
 
 
 		//	detailPagerAdapter = new DetailPagerAdapter (FragmentManager, movieId);
@@ -90,6 +95,11 @@ namespace Funky_Film
 			toPerson.PutExtra ("personId", actorId);
 			toPerson.PutExtra ("personName", actorName);
 			StartActivity (toPerson);
+		}
+
+		public override bool OnOptionsItemSelected (IMenuItem item){
+			StartActivity (typeof(SearchActivity));
+			return true;
 		}
 
 

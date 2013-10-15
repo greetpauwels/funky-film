@@ -20,7 +20,7 @@
     <string name="genres">Genres:\u0020 </string>
     <string name="search_fragment_title_popular">Popular films</string>
     <string name="search_fragment_title_upcoming">Upcoming films</string>
-    <string name="search_fragment_title_search">Search results</string>
+    <string name="search_fragment_title_search">Search results for</string>
     <string name="no_rating">no rating</string>
     <string name="crew">Crew:\u0020 </string>
     <string name="cast">Cast:\u0020 </string>

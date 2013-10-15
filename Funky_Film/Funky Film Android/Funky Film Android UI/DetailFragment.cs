@@ -27,7 +27,6 @@ namespace Funky_Film
 		ConnectivityChecker connectionCheck;
 
 		Movie movie = new Movie();
-		Cast cast;
 		int movieId;
 
 		View view;

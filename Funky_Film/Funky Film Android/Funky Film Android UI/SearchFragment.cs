@@ -79,7 +79,7 @@ namespace Funky_Film.Android.UI
 				Log.Info ("SearchFragment", "is search action");
 				query = intent.GetStringExtra (SearchManager.Query);
 				url = Const.UrlSearch + query;
-				listTitle = Resources.GetString (Resource.String.search_fragment_title_search);
+				listTitle = Resources.GetString (Resource.String.search_fragment_title_search)+" '"+query+"'";
 				emptyString = Resources.GetString (Resource.String.empty_search);
 			} else {
 				url = Const.UrlUpcoming;

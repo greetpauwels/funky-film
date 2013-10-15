@@ -26,6 +26,8 @@ namespace Funky_Film.Android.UI
 			actorId = intent.GetIntExtra ("personId", 0);
 			actorName = intent.GetStringExtra ("personName");
 			this.Title = actorName;
+			ActionBar.SetDisplayHomeAsUpEnabled (true);
+			ActionBar.SetHomeButtonEnabled (true);
 			SetContentView (Resource.Layout.PersonActivity);
 
 
@@ -69,6 +71,11 @@ namespace Funky_Film.Android.UI
 			toDetail.PutExtra ("movieId", movieId);
 			toDetail.PutExtra ("movieName", movieName);
 			StartActivity (toDetail);
+		}
+
+		public override bool OnOptionsItemSelected (IMenuItem item){
+			StartActivity (typeof(SearchActivity));
+			return true;
 		}
 	}
 }

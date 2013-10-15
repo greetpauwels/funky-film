@@ -103,11 +103,11 @@ namespace Funky_Film
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f090032
-			public const int action_search = 2131296306;
+			// aapt resource value: 0x7f090033
+			public const int action_search = 2131296307;
 			
-			// aapt resource value: 0x7f090031
-			public const int action_settings = 2131296305;
+			// aapt resource value: 0x7f090032
+			public const int action_settings = 2131296306;
 			
 			// aapt resource value: 0x7f090001
 			public const int actor_name = 2131296257;
@@ -139,8 +139,8 @@ namespace Funky_Film
 			// aapt resource value: 0x7f09000a
 			public const int crew_thumbnail = 2131296266;
 			
-			// aapt resource value: 0x7f090030
-			public const int detail_cnt_adult = 2131296304;
+			// aapt resource value: 0x7f090031
+			public const int detail_cnt_adult = 2131296305;
 			
 			// aapt resource value: 0x7f09001a
 			public const int detail_cnt_overview = 2131296282;
@@ -157,8 +157,8 @@ namespace Funky_Film
 			// aapt resource value: 0x7f090014
 			public const int detail_cnt_status = 2131296276;
 			
-			// aapt resource value: 0x7f09002f
-			public const int detail_overview = 2131296303;
+			// aapt resource value: 0x7f090030
+			public const int detail_overview = 2131296304;
 			
 			// aapt resource value: 0x7f09000f
 			public const int detail_poster = 2131296271;
@@ -187,8 +187,8 @@ namespace Funky_Film
 			// aapt resource value: 0x7f090007
 			public const int emptyView = 2131296263;
 			
-			// aapt resource value: 0x7f09002e
-			public const int list = 2131296302;
+			// aapt resource value: 0x7f09002f
+			public const int list = 2131296303;
 			
 			// aapt resource value: 0x7f09002d
 			public const int list_title = 2131296301;
@@ -246,6 +246,9 @@ namespace Funky_Film
 			
 			// aapt resource value: 0x7f09001d
 			public const int scrollView2 = 2131296285;
+			
+			// aapt resource value: 0x7f09002e
+			public const int separator = 2131296302;
 			
 			// aapt resource value: 0x7f090029
 			public const int thumbnail = 2131296297;
