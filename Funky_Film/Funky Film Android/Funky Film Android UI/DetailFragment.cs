@@ -14,6 +14,7 @@ using Funky_Film.Tasks;
 using Funky_Film.Android.Tasks;
 using System.Threading.Tasks;
 using Funky_Film.Android.Util;
+using Funky_Film.Util;
 using System.Resources;
 
 namespace Funky_Film
@@ -34,7 +35,8 @@ namespace Funky_Film
 		ImageView movie_poster;
 		TextView movie_title;
 		TextView movie_tagline;
-		TextView movie_overview;
+		TextView movie_rating;
+		TextView movie_cnt_rating;
 		TextView movie_cnt_overview;
 		TextView movie_releasedate;
 		TextView movie_cnt_releasedate;
@@ -62,8 +64,9 @@ namespace Funky_Film
 
 			movie_poster = (ImageView) view.FindViewById (Resource.Id.detail_poster);
 			movie_title = (TextView) view.FindViewById (Resource.Id.detail_title);
+			movie_rating = (TextView)view.FindViewById (Resource.Id.detail_rating);
+			movie_cnt_rating = (TextView)view.FindViewById (Resource.Id.detail_cnt_rating);
 			movie_tagline = (TextView) view.FindViewById(Resource.Id.detail_tagline);
-			movie_overview = (TextView)view.FindViewById (Resource.Id.detail_overview);
 			movie_cnt_overview = (TextView) view.FindViewById (Resource.Id.detail_cnt_overview);
 			movie_releasedate= (TextView) view.FindViewById (Resource.Id.detail_releasedate);
 			movie_cnt_releasedate = (TextView) view.FindViewById (Resource.Id.detail_cnt_releasedate);
@@ -108,11 +111,17 @@ namespace Funky_Film
 
 			movie_title.Text = movie.original_title;
 			movie_tagline.Text = movie.tagline;
-			movie_overview.Text = res.GetString (Resource.String.overview);
+			if (movie.vote_count != 0) {
+				movie_cnt_rating.Text = Convert.ToString (movie.vote_average);
+				movie_rating.Text = res.GetString (Resource.String.rating);
+			} else {
+				movie_cnt_rating.Visibility = ViewStates.Gone;
+				movie_rating.Visibility = ViewStates.Gone;
+			}
 			movie_cnt_overview.Text = movie.overview;
 			movie_releasedate.Text = res.GetString (Resource.String.release_date);
-			movie_cnt_releasedate.Text = movie.release_date;
-			movie_runtime.Text=res.GetString (Resource.String.runtime);
+			movie_cnt_releasedate.Text = UIUtil.ConvertDateToEuropean (movie.release_date);
+			movie_runtime.Text=res.GetString (Resource.String.minutes);
 			movie_cnt_runtime.Text =Convert.ToString (movie.runtime);
 			movie_status.Text=res.GetString (Resource.String.status);
 			movie_cnt_status.Text = movie.status;

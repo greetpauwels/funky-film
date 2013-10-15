@@ -35,4 +35,6 @@
     <string name="about">About</string>
     <string name="other_cast">Movies</string>
     <string name="cast_list">Cast</string>
+    <string name="minutes">\u0020 min.</string>
+    <string name="rating"> /10</string>
 </resources>

@@ -8,6 +8,8 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Funky_Film.Util;
+
 
 namespace Funky_Film.Model
 {

@@ -87,6 +87,7 @@
     <Compile Include="Funky Film Model\CrewCredit.cs" />
     <Compile Include="Funky Film Android\Funky Film Android Adapter\CreditsCastAdapter.cs" />
     <Compile Include="Funky Film Android\Funky Film Android Util\ConnectivityChecker.cs" />
+    <Compile Include="Funky Film Util\UIUtil.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -133,6 +134,7 @@
     <Folder Include="Funky Film Android\Funky Film Android Tasks\" />
     <Folder Include="Resources\menu\" />
     <Folder Include="Funky Film Android\Funky Film Android Util\" />
+    <Folder Include="Funky Film Util\" />
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="json.net">
