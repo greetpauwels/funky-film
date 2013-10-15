@@ -15,13 +15,13 @@ namespace Funky_Film.Util
 	{
 
 		public static string ConvertDateToEuropean(string date){
-			if (date.Length == 10) {
+			if (date!=null && date.Length == 10) {
 				string day = date.Substring (8, 2);
 				string month = date.Substring (5, 2);
 				string year = date.Substring (0, 4);
 				return day + "-" + month + "-" + year;
 			} else {
-				return "..-..-....";
+				return "-";
 			}
 
 

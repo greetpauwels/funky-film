@@ -14,92 +14,84 @@
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin"
         tools:context=".PersonDetailFragment">
-        <ImageView
-            android:id="@+id/person_poster"
-            android:layout_width="@dimen/poster_size"
-            android:layout_height="@dimen/poster_size"
-            android:layout_alignParentTop="true"
-            android:scaleType="centerInside" />
-        <TextView
-            android:id="@+id/person_name"
+        <RelativeLayout
+            android:id="@+id/top"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@id/person_poster"
-            android:layout_marginBottom="21dp"
-            android:layout_toRightOf="@id/person_poster"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-        <TextView
-            android:id="@+id/person_bio"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@id/person_poster"
-            android:layout_below="@id/person_poster" />
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/person_poster"
+                android:layout_width="@dimen/poster_size"
+                android:layout_height="@dimen/poster_size"
+                android:layout_alignParentTop="true"
+                android:scaleType="centerInside" />
+            <TextView
+                android:id="@+id/person_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/person_poster"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_toRightOf="@id/person_poster"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+            <TextView
+                android:id="@+id/person_birthdate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@id/person_name"
+                android:layout_below="@id/person_name" />
+            <TextView
+                android:id="@+id/person_birthdate_cnt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@id/person_birthdate"
+                android:layout_toRightOf="@id/person_birthdate"
+                android:textSize="@dimen/content_txt_size" />
+            <TextView
+                android:id="@+id/person_birthplace_cnt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@id/person_name"
+                android:layout_below="@id/person_birthdate"
+                android:textSize="@dimen/content_txt_size" />
+            <TextView
+                android:id="@+id/person_deathdate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@id/person_name"
+                android:layout_below="@id/person_birthplace_cnt" />
+            <TextView
+                android:id="@+id/person_deathdate_cnt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@id/person_deathdate"
+                android:layout_alignBottom="@id/person_deathdate"
+                android:layout_toRightOf="@id/person_deathdate"
+                android:textSize="@dimen/content_txt_size" />
+            <TextView
+                android:id="@+id/person_homepage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@id/person_name"
+                android:layout_below="@id/person_deathdate" />
+            <TextView
+                android:id="@+id/person_homepage_cnt"
+                android:autoLink="web"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@id/person_homepage"
+                android:layout_alignBottom="@id/person_homepage"
+                android:layout_toRightOf="@id/person_homepage"
+                android:textSize="@dimen/content_txt_size" />
+        </RelativeLayout>
         <TextView
             android:id="@+id/person_bio_cnt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignLeft="@id/person_poster"
             android:layout_alignParentRight="true"
-            android:layout_below="@id/person_bio"
-            android:textSize="@dimen/content_txt_size"
+            android:layout_marginTop="5dp"
+            android:layout_below="@id/top"
             android:textAppearance="?android:attr/textAppearanceSmall" />
-        <TextView
-            android:id="@+id/person_birthdate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@id/person_poster"
-            android:layout_below="@id/person_bio_cnt" />
-        <TextView
-            android:id="@+id/person_birthdate_cnt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@id/person_birthdate"
-            android:layout_alignBottom="@id/person_birthdate"
-            android:layout_toRightOf="@id/person_birthdate"
-            android:textSize="@dimen/content_txt_size" />
-        <TextView
-            android:id="@+id/person_deathdate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@id/person_poster"
-            android:layout_below="@id/person_birthdate" />
-        <TextView
-            android:id="@+id/person_deathdate_cnt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@id/person_deathdate"
-            android:layout_alignBottom="@id/person_deathdate"
-            android:layout_toRightOf="@id/person_deathdate"
-            android:textSize="@dimen/content_txt_size" />
-        <TextView
-            android:id="@+id/person_birthplace"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@id/person_poster"
-            android:layout_below="@id/person_deathdate" />
-        <TextView
-            android:id="@+id/person_birthplace_cnt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@id/person_birthplace"
-            android:layout_alignBottom="@id/person_birthplace"
-            android:layout_toRightOf="@id/person_birthplace"
-            android:textSize="@dimen/content_txt_size" />
-        <TextView
-            android:id="@+id/person_homepage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@id/person_poster"
-            android:layout_below="@id/person_birthplace" />
-        <TextView
-            android:id="@+id/person_homepage_cnt"
-            android:autoLink="web"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@id/person_homepage"
-            android:layout_alignBottom="@id/person_homepage"
-            android:layout_toRightOf="@id/person_homepage"
-            android:textSize="@dimen/content_txt_size" />
         <LinearLayout
             android:id="@+id/emptyView"
             android:layout_width="match_parent"

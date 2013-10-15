@@ -15,6 +15,7 @@ using Funky_Film.Model;
 using Funky_Film.Tasks;
 using Funky_Film.Android.Tasks;
 using Funky_Film.Android.Util;
+using Funky_Film.Util;
 
 namespace Funky_Film.Android.UI
 {
@@ -34,11 +35,9 @@ namespace Funky_Film.Android.UI
 		TextView birthday_cnt;
 		TextView deathday;
 		TextView deathday_cnt;
-		TextView birthplace;
 		TextView birthplace_cnt;
 		TextView homepage;
 		TextView homepage_cnt;
-		TextView bio;
 		TextView bio_cnt;
 		Button reloadBttn;
 
@@ -71,9 +70,7 @@ namespace Funky_Film.Android.UI
 			birthday_cnt = (TextView)view.FindViewById (Resource.Id.person_birthdate_cnt);
 			deathday = (TextView)view.FindViewById (Resource.Id.person_deathdate);
 			deathday_cnt = (TextView)view.FindViewById (Resource.Id.person_deathdate_cnt);
-			birthplace = (TextView)view.FindViewById (Resource.Id.person_birthplace);
 			birthplace_cnt =(TextView)view.FindViewById (Resource.Id.person_birthplace_cnt);
-			bio = (TextView)view.FindViewById (Resource.Id.person_bio);
 			bio_cnt =  (TextView)view.FindViewById (Resource.Id.person_bio_cnt);
 			personPoster = (ImageView)view.FindViewById (Resource.Id.person_poster);
 			homepage = (TextView)view.FindViewById (Resource.Id.person_homepage_cnt);
@@ -115,13 +112,16 @@ namespace Funky_Film.Android.UI
 			await LoadPerson ();
 
 			personName.Text = person.name;
-			bio.Text = res.GetString (Resource.String.bio);
 			bio_cnt.Text = person.biography;
 			birthday.Text = res.GetString (Resource.String.birthday);
-			birthday_cnt.Text = person.birthday;
+			birthday_cnt.Text = UIUtil.ConvertDateToEuropean(person.birthday);
 			deathday.Text = res.GetString (Resource.String.deathday);
-			deathday_cnt.Text = person.deathday;
-			birthplace.Text = res.GetString (Resource.String.birthplace);
+			if (person.deathday != "") {
+				deathday_cnt.Text = UIUtil.ConvertDateToEuropean (person.deathday);
+			} else {
+				deathday.Visibility = ViewStates.Gone;
+				deathday_cnt.Visibility = ViewStates.Gone;
+			}
 			birthplace_cnt.Text = person.place_of_birth;
 			homepage.Text = res.GetString (Resource.String.homepage);
 			homepage_cnt.Text = person.homepage;
@@ -130,7 +130,7 @@ namespace Funky_Film.Android.UI
 				string url = Const.UrlImage154 + person.profile_path;
 				personPoster.SetImageBitmap (new RemoteImageLoaderAndroid ().GetRemoteBitMap (url));
 			} else {
-				personPoster.SetImageDrawable (res.GetDrawable (Resource.Drawable.default_crew_image));
+				personPoster.SetImageDrawable (res.GetDrawable (Resource.Drawable.default_actor_image));
 			}
 
 		}
