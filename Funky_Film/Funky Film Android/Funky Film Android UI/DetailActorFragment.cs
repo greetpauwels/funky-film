@@ -43,9 +43,6 @@ namespace Funky_Film
 		TextView emptyVw;
 		Button reloadBttn;
 
-
-
-
 		public interface CallBacks{
 			void OnItemSelected (int actorId, string actorName);
 		}
@@ -69,7 +66,6 @@ namespace Funky_Film
 			movieId = intent.GetIntExtra ("movieId", 0);
 			// TODO: use String.Format ();
 			url = Const.UrlMovie + movieId + "/casts" + Const.ApiKey;
-			// Create your fragment here
 		}
 
 		public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
@@ -121,18 +117,11 @@ namespace Funky_Film
 			Cast castToConvert = await RunSearch ();
 			actors = castToConvert.cast;
 
-			//	Task searchResultsAsList = RunSearch ();
-			//	movies = await searchResultsAsList;
 			Log.Info ("DetailActorFragment", "NewSearchMID" );
 			Log.Info ("DetailActorFragment", " - newSearchMID "+Convert.ToString (actors.Length) ); 
 
 			adapter = new DetailActorAdapter (Activity.ApplicationContext, actors.OfType<Actor> ().ToList ());
 			movie_cnt_list.Adapter = adapter;
-
-
-			/*if (actors.Count == 0) {
-				Toast.MakeText (Activity.ApplicationContext, Resource.String.no_result, ToastLength.Long).Show ();
-			}*/
 
 			Log.Info ("DetailActorFragment", "NewSearchOUT" );
 		}

@@ -44,6 +44,7 @@ namespace Funky_Film
 		TextView movie_status;
 		TextView movie_cnt_status;
 		Button reloadBttn;
+		
 
 		public override void OnCreate (Bundle bundle)
 		{
@@ -129,7 +130,7 @@ namespace Funky_Film
 			movie_releasedate.Text = res.GetString (Resource.String.release_date);
 			movie_cnt_releasedate.Text = UIUtil.ConvertDateToEuropean (movie.release_date);
 
-			if (movie.runtime != null && movie.runtime != 0) {
+			if (movie.runtime != 0) {
 				movie_runtime.Text = res.GetString (Resource.String.minutes);
 				movie_cnt_runtime.Text = Convert.ToString (movie.runtime);
 			} else {
