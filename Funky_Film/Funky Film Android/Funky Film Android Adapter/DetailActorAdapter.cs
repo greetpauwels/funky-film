@@ -40,17 +40,22 @@ namespace Funky_Film
 				viewHolder.posterView = (ImageView)convertView.FindViewById (Resource.Id.actor_thumbnail);
 				convertView.Tag = viewHolder;
 			} else {
+				// TODO use as operator instead of (cast)
+				// as will return null / casting will throw an error if it cannot be cast.
 				viewHolder = (ViewHolder)convertView.Tag;
 			}
 
 			Log.Info ("DetailActorAdapter", Convert.ToString (actors.Count));
 
 			if (actors.Count != 0) {
+				// TODO: implicit typing
+				// var actor = actors.ElementAt (position);
 				Actor actor = actors.ElementAt (position);
 				viewHolder.nameView.Text = actor.name;
 				viewHolder.roleView.Text = actor.character;
 
 				if (actor.profile_path != null) {
+					// TODO: use String.Format () for formatting strings
 					string url = Const.UrlImage92 + actor.profile_path;
 					posterBitmap = new RemoteImageLoaderAndroid ().GetRemoteBitMap (url);
 				}
@@ -63,7 +68,7 @@ namespace Funky_Film
 			return convertView;
 
 		}
-
+		// TODO: clean up whitespace :)
 
 		class ViewHolder:Java.Lang.Object {
 			public TextView nameView;

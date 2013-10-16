@@ -23,7 +23,7 @@ namespace Funky_Film.Tasks
 		string contentConverted; 
 
 		public async Task<string> CreateWebRequest(string url){
-
+			// TODO: improve readability of the code
 			Log.Info ("SearchResultLoader", "CreateWebRequestIN" );
 
 			var request = (HttpWebRequest)HttpWebRequest.Create (new Uri (url));

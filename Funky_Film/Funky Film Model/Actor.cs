@@ -13,7 +13,7 @@ namespace Funky_Film.Model
 {
 	public class Actor
 	{
-
+		// TODO: a C# naming convention is to use capitals for properties
 		public int id { get; set; }
 		public String name { get; set; }
 		public String character { get; set; }

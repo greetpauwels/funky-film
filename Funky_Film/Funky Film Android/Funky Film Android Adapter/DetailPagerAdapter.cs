@@ -15,6 +15,7 @@ namespace Funky_Film
 {
 	class DetailPagerAdapter : FragmentPagerAdapter
 	{
+		// TODO: preferrably use readonly over const (unless you are sure the variable will never ever change)
 		const int NumberOfItems = 2;
 
 		private int movieId;
@@ -29,7 +30,8 @@ namespace Funky_Film
 			arguments.PutInt ("movieId", movieId);
 
 			switch (position) {
-
+			
+				// TODO: what is the difference between the two case statements? :)
 			case 0:
 				Fragment fragment_movie = new DetailFragment ();
 				fragment_movie.Arguments = arguments;

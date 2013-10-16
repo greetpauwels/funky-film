@@ -56,6 +56,7 @@ namespace Funky_Film
 		}
 
 		public override void OnDetach(){
+			// TODO no need to override when you are only calling the base
 			base.OnDetach ();
 		}
 
@@ -66,6 +67,7 @@ namespace Funky_Film
 			connectionCheck = new ConnectivityChecker (context);
 			intent = Activity.Intent;
 			movieId = intent.GetIntExtra ("movieId", 0);
+			// TODO: use String.Format ();
 			url = Const.UrlMovie + movieId + "/casts" + Const.ApiKey;
 			// Create your fragment here
 		}
