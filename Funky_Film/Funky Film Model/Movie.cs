@@ -14,7 +14,6 @@ namespace Funky_Film.Model
 {
 	public class Movie
 	{
-
 		public int Id{ get; set; }
 		public string Backdrop_path { get; set; }
 		public string Poster_path{ get; set; }
@@ -34,7 +33,6 @@ namespace Funky_Film.Model
 
 		public Movie(){
 		}
-
 	}
 }
 
