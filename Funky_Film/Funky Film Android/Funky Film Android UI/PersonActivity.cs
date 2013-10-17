@@ -14,22 +14,20 @@ namespace Funky_Film.Android.UI
 	[Activity]			
 	public class PersonActivity : Activity, PersonAsCastFragment.CallBacks
 	{
-		int actorId;
-		string actorName;
-		
+		private int actorId;
+		private string actorName;
 
 		protected override void OnCreate (Bundle bundle)
 		{
 			base.OnCreate (bundle);
 
-			Intent intent = Intent;
+			var intent = Intent;
 			actorId = intent.GetIntExtra ("personId", 0);
 			actorName = intent.GetStringExtra ("personName");
 			this.Title = actorName;
 			ActionBar.SetDisplayHomeAsUpEnabled (true);
 			ActionBar.SetHomeButtonEnabled (true);
 			SetContentView (Resource.Layout.PersonActivity);
-
 
 			ActionBar actionBar = ActionBar;
 			actionBar.NavigationMode = ActionBarNavigationMode.Tabs;
@@ -39,14 +37,12 @@ namespace Funky_Film.Android.UI
 	
 			AddTab (this.Resources.GetString (Resource.String.about), personDetailTab);
 			AddTab (this.Resources.GetString (Resource.String.other_cast), personAsCastTab);
-
 		}
 
 		void AddTab (string tabText, Fragment fragment)
 		{
 			var tab = this.ActionBar.NewTab ();
 			tab.SetText (tabText);
-
 
 			tab.TabSelected += delegate(object sender, ActionBar.TabEventArgs e) {
 				e.FragmentTransaction.Replace (Resource.Id.person_container, fragment);
@@ -64,10 +60,9 @@ namespace Funky_Film.Android.UI
 
 			this.ActionBar.AddTab (tab);
 		}
-
-
+		
 		public void OnItemSelected(int movieId, string movieName){
-			Intent toDetail = new Intent (this, typeof(DetailActivity));
+			var toDetail = new Intent (this, typeof(DetailActivity));
 			toDetail.PutExtra ("movieId", movieId);
 			toDetail.PutExtra ("movieName", movieName);
 			StartActivity (toDetail);

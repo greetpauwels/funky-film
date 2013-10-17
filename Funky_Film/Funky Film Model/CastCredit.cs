@@ -13,12 +13,12 @@ namespace Funky_Film.Model
 {
 	public class CastCredit
 	{
-		public int id { get; set; }
-		public string title { get; set; }
-		public string character { get; set; }
-		public string original_title { get; set; }
-		public string poster_path { get; set; }
-		public string release_date { get; set; }
+		public int Id { get; set; }
+		public string Title { get; set; }
+		public string Character { get; set; }
+		public string Original_title { get; set; }
+		public string Poster_path { get; set; }
+		public string Release_date { get; set; }
 	}
 }
 

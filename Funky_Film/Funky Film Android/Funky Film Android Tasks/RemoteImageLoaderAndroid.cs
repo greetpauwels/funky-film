@@ -13,12 +13,11 @@ using Android.Graphics;
 
 namespace Funky_Film.Android.Tasks
 {
-	class RemoteImageLoaderAndroid
+	public class RemoteImageLoaderAndroid
 	{
 		Bitmap imageBitMap;
 
 		public Bitmap GetRemoteBitMap(string uri){
-
 			byte[] originalByteArray = new RemoteImageLoader ().LoadImage (uri);
 
 			if (originalByteArray != null && originalByteArray.Length > 0) {

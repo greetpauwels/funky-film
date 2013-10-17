@@ -138,8 +138,8 @@ namespace Funky_Film.Android.UI
 
 
 		void OnListItemClick(object sender, AdapterView.ItemClickEventArgs e){
-			int itemId = creditsAsCast.ElementAt (e.Position).id;
-			string itemName = creditsAsCast.ElementAt (e.Position).original_title;
+			int itemId = creditsAsCast.ElementAt (e.Position).Id;
+			string itemName = creditsAsCast.ElementAt (e.Position).Original_title;
 			listener.OnItemSelected (itemId, itemName);
 		}
 

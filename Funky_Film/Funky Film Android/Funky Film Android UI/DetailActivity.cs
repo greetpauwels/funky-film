@@ -29,17 +29,15 @@ namespace Funky_Film.Android.UI
 		string movieName;
 
 		Movie movie = new Movie();
-
-
-		protected override void OnCreate (Bundle savedInstanceState)
-		{
+		
+		protected override void OnCreate (Bundle savedInstanceState){
 		base.OnCreate (savedInstanceState);
 
 			ActionBar.NavigationMode = ActionBarNavigationMode.Tabs;
 			ActionBar.SetDisplayHomeAsUpEnabled (true);
 			ActionBar.SetHomeButtonEnabled (true);
 
-			Intent intent = Intent;
+			var intent = Intent;
 
 			movieId = intent.GetIntExtra ("movieId", 0);
 			movieName = intent.GetStringExtra ("movieName");
@@ -51,8 +49,6 @@ namespace Funky_Film.Android.UI
 			Fragment movieTab = new DetailFragment ();
 			Fragment actorTab = new DetailActorFragment ();
 
-
-
 			AddTab (this.Resources.GetString (Resource.String.about), movieTab);
 			AddTab (this.Resources.GetString (Resource.String.cast_list), actorTab);
 
@@ -60,11 +56,9 @@ namespace Funky_Film.Android.UI
 				ActionBar.SetSelectedNavigationItem (savedInstanceState.GetInt("lastTab", 0));
 				//ActionBar.SelectTab (ActionBar.GetTabAt (savedInstanceState.GetInt("lastTab")));
 			}
-
 		}
 
-		void AddTab (string tabText, Fragment fragment)
-		{
+		void AddTab (string tabText, Fragment fragment) {
 			var tab = this.ActionBar.NewTab ();
 			tab.SetText (tabText);
 

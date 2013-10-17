@@ -15,33 +15,33 @@ using Funky_Film.Tasks;
 using Java.Util;
 using Org.Apache.Http.Util;
 using System.Threading.Tasks;
-using Java.Lang;
 using System.Net.Mime;
 using System.Resources;
 using Funky_Film.Android.Util;
+using Android;
 
 namespace Funky_Film.Android.UI
 {
 	public class DetailActorFragment : Fragment
 	{
 
-		Context context;
-		DetailActorAdapter adapter;
-		CallBacks listener;
-		Intent intent;
-		ConnectivityChecker connectionCheck;
+		private Context context;
+		private DetailActorAdapter adapter;
+		private CallBacks listener;
+		private Intent intent;
+		private ConnectivityChecker connectionCheck;
 
 		private int movieId;
-		Casting cast;
-		Actor[] actors;
+		private Casting cast;
+		private Actor[] actors;
 
-		string url;
+		private string url;
 
 		private View view;
-		ListView movie_cnt_list;
-		LinearLayout emptyLayout;
-		TextView emptyVw;
-		Button reloadBttn;
+		private ListView movie_cnt_list;
+		private LinearLayout emptyLayout;
+		private TextView emptyVw;
+		private Button reloadBttn;
 
 		public interface CallBacks{
 			void OnItemSelected (int actorId, string actorName);
@@ -52,11 +52,6 @@ namespace Funky_Film.Android.UI
 			listener = (CallBacks) activity;
 		}
 
-		public override void OnDetach(){
-			// TODO no need to override when you are only calling the base
-			base.OnDetach ();
-		}
-
 		public override void OnCreate (Bundle savedInstanceState)
 		{
 			base.OnCreate (savedInstanceState);
@@ -65,11 +60,11 @@ namespace Funky_Film.Android.UI
 			intent = Activity.Intent;
 			movieId = intent.GetIntExtra ("movieId", 0);
 			// TODO: use String.Format ();
-			url = Const.UrlMovie + movieId + "/casts" + Const.ApiKey;
+			//url = Const.UrlMovie + movieId + "/casts" + Const.ApiKey;
+			url = String.Format ("{0}{1}/casts{2}", Const.UrlMovie, movieId, Const.ApiKey);
 		}
 
 		public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-
 			view = inflater.Inflate (Resource.Layout.CrewFragment, container, false);
 			movie_cnt_list = (ListView)view.FindViewById (Resource.Id.add_cnt_list);
 			emptyLayout = (LinearLayout)view.FindViewById (Resource.Id.emptyView);
@@ -131,7 +126,6 @@ namespace Funky_Film.Android.UI
 			string itemName = actors [e.Position].Name;
 			listener.OnItemSelected (itemId, itemName);
 		}
-
 	}
 }
 

@@ -21,29 +21,29 @@ namespace Funky_Film.Android.UI
 {
 	public class DetailFragment : Fragment
 	{
-		Intent intent; 
-		Context context;
-		Resources res;
-		ConnectivityChecker connectionCheck;
+		private Intent intent; 
+		private Context context;
+		private Resources res;
+		private ConnectivityChecker connectionCheck;
 
-		Movie movie = new Movie();
-		int movieId;
+		private Movie movie = new Movie();
+		private int movieId;
 
-		View view;
-		LinearLayout emptyLayout;
-		ImageView movie_poster;
-		TextView movie_title;
-		TextView movie_tagline;
-		TextView movie_rating;
-		TextView movie_cnt_rating;
-		TextView movie_cnt_overview;
-		TextView movie_releasedate;
-		TextView movie_cnt_releasedate;
-		TextView movie_runtime;
-		TextView movie_cnt_runtime;
-		TextView movie_status;
-		TextView movie_cnt_status;
-		Button reloadBttn;
+		private View view;
+		private LinearLayout emptyLayout;
+		private ImageView movie_poster;
+		private TextView movie_title;
+		private TextView movie_tagline;
+		private TextView movie_rating;
+		private TextView movie_cnt_rating;
+		private TextView movie_cnt_overview;
+		private TextView movie_releasedate;
+		private TextView movie_cnt_releasedate;
+		private TextView movie_runtime;
+		private TextView movie_cnt_runtime;
+		private TextView movie_status;
+		private TextView movie_cnt_status;
+		private Button reloadBttn;
 		
 
 		public override void OnCreate (Bundle bundle)
@@ -54,7 +54,6 @@ namespace Funky_Film.Android.UI
 			context = Activity.ApplicationContext;
 			res = context.Resources;
 			connectionCheck = new ConnectivityChecker (context);
-
 		}
 
 		public override View OnCreateView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -80,7 +79,6 @@ namespace Funky_Film.Android.UI
 			ProceedByConnectionStatus ();
 
 			return view;
-
 		}
 
 		private void ProceedByConnectionStatus(){
@@ -90,7 +88,6 @@ namespace Funky_Film.Android.UI
 				Newdetails();
 			} else {
 				Toast.MakeText (Activity.ApplicationContext, "No internet connection",ToastLength.Long).Show ();
-
 				reloadBttn.Click += delegate {
 					ProceedByConnectionStatus ();
 				};
@@ -99,10 +96,9 @@ namespace Funky_Film.Android.UI
 
 
 		private async Task<Movie> LoadDetails(){
-
-			string url = Const.UrlMovie + movieId + Const.ApiKey;
+			//string url = Const.UrlMovie + movieId + Const.ApiKey;
+			var url = String.Format ("{0}{1}{2}",Const.UrlMovie, movieId, Const.ApiKey);
 			movie = await new SearchResultLoader().GetMovieDetail (url);
-
 			return movie;
 		}
 
@@ -142,14 +138,13 @@ namespace Funky_Film.Android.UI
 			movie_cnt_status.Text = movie.Status;
 
 			if (movie.Poster_path != null) {
-				string url = Const.UrlImage154 + movie.Poster_path;
+				//string url = Const.UrlImage154 + movie.Poster_path;
+				var url = String.Format ("{0}{1}", Const.UrlImage154, movie.Poster_path);
 				movie_poster.SetImageBitmap (new RemoteImageLoaderAndroid ().GetRemoteBitMap (url));
 			} else {
 				movie_poster.SetImageDrawable(res.GetDrawable (Resource.Drawable.default_movie_image));
 			}
-
 		}
-
 	}
 }
 

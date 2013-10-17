@@ -53,15 +53,15 @@ namespace Funky_Film.Android.Adapter
 				var credit = new CastCredit ();
 				credit = creditsAsCast.ElementAt (position);
 
-				viewHolder.titelView.Text = credit.title;
-				viewHolder.roleView.Text = credit.character;
+				viewHolder.titelView.Text = credit.Title;
+				viewHolder.roleView.Text = credit.Character;
 
-				if (credit.poster_path != null) {
-					string url = Const.UrlImage92 + credit.poster_path;
+				if (credit.Poster_path != null) {
+					string url = Const.UrlImage92 + credit.Poster_path;
 					posterBitmap = new RemoteImageLoaderAndroid ().GetRemoteBitMap (url);
 				} 
 
-				if (credit.poster_path== null |posterBitmap == null) {
+				if (credit.Poster_path== null |posterBitmap == null) {
 					viewHolder.thumbView.SetImageDrawable (context.Resources.GetDrawable (Resource.Drawable.default_crew_image));
 				} else {
 					viewHolder.thumbView.SetImageBitmap (posterBitmap);
