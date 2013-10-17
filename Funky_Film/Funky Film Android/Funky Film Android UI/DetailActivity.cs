@@ -69,12 +69,12 @@ namespace Funky_Film.Android.UI
 			tab.TabReselected += delegate(object sender, ActionBar.TabEventArgs e) {
 				e.FragmentTransaction.Detach (fragment);
 				e.FragmentTransaction.Attach (fragment);
-		};
+			};
 
 
 			tab.TabUnselected += delegate(object sender, ActionBar.TabEventArgs e) {
 				e.FragmentTransaction.Remove (fragment);
-		};
+			};
 
 			this.ActionBar.AddTab (tab);
 		}

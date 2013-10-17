@@ -37,6 +37,10 @@ namespace Funky_Film.Android.UI
 	
 			AddTab (this.Resources.GetString (Resource.String.about), personDetailTab);
 			AddTab (this.Resources.GetString (Resource.String.other_cast), personAsCastTab);
+
+			if(bundle != null){
+				ActionBar.SetSelectedNavigationItem (bundle.GetInt("lastTab", 0));
+			}
 		}
 
 		void AddTab (string tabText, Fragment fragment)
@@ -71,6 +75,11 @@ namespace Funky_Film.Android.UI
 		public override bool OnOptionsItemSelected (IMenuItem item){
 			StartActivity (typeof(SearchActivity));
 			return true;
+		}
+
+		protected override void OnSaveInstanceState(Bundle savedInstanceState){
+			base.OnSaveInstanceState (savedInstanceState);
+			savedInstanceState.PutInt ("lastTab", ActionBar.SelectedNavigationIndex);
 		}
 	}
 }

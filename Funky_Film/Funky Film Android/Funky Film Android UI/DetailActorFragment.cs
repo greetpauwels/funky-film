@@ -66,10 +66,10 @@ namespace Funky_Film.Android.UI
 
 		public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
 			view = inflater.Inflate (Resource.Layout.CrewFragment, container, false);
-			movie_cnt_list = (ListView)view.FindViewById (Resource.Id.add_cnt_list);
-			emptyLayout = (LinearLayout)view.FindViewById (Resource.Id.emptyView);
-			emptyVw = (TextView)view.FindViewById (Resource.Id.empty);
-			reloadBttn = (Button)view.FindViewById (Resource.Id.reload);
+			movie_cnt_list = view.FindViewById (Resource.Id.add_cnt_list) as ListView;
+			emptyLayout = view.FindViewById (Resource.Id.emptyView) as LinearLayout;
+			emptyVw = view.FindViewById (Resource.Id.empty) as TextView;
+			reloadBttn = view.FindViewById (Resource.Id.reload) as Button;
 
 			movie_cnt_list.ItemClick += OnListItemClick;
 
@@ -82,7 +82,7 @@ namespace Funky_Film.Android.UI
 			if (connectionCheck.IsConnected()) {
 				NewSearch();
 			} else {
-				Toast.MakeText (Activity.ApplicationContext, "No internet connection",ToastLength.Long).Show ();
+				Toast.MakeText (context, "No internet connection",ToastLength.Long).Show ();
 				movie_cnt_list.EmptyView = emptyLayout;
 				reloadBttn.Click += delegate {
 					ProceedByConnectionStatus ();
@@ -92,7 +92,6 @@ namespace Funky_Film.Android.UI
 
 
 		private async Task<Casting> RunSearch(){
-
 			Log.Info ("DetailActorFragment", "RunSearchIN" );
 
 			Log.Info ("DetailActorFragment search url", url);
@@ -102,11 +101,9 @@ namespace Funky_Film.Android.UI
 			Log.Info ("DetailActorFragment", "NewSearchOUT" );
 
 			return  cast;
-
 		}
 
 		private async void NewSearch(){
-
 			Log.Info ("DetailActorFragment", "NewSearchIN" );
 
 			Casting castToConvert = await RunSearch ();
@@ -115,7 +112,7 @@ namespace Funky_Film.Android.UI
 			Log.Info ("DetailActorFragment", "NewSearchMID" );
 			Log.Info ("DetailActorFragment", " - newSearchMID "+Convert.ToString (actors.Length) ); 
 
-			adapter = new DetailActorAdapter (Activity.ApplicationContext, actors.OfType<Actor> ().ToList ());
+			adapter = new DetailActorAdapter (context, actors.OfType<Actor> ().ToList ());
 			movie_cnt_list.Adapter = adapter;
 
 			Log.Info ("DetailActorFragment", "NewSearchOUT" );

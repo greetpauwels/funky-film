@@ -43,8 +43,6 @@ namespace Funky_Film.Android.UI
 		int actorId;
 		string url;
 	
-
-		
 		public interface CallBacks{
 			void OnItemSelected (int movieId, string movieName);
 		}
@@ -77,15 +75,14 @@ namespace Funky_Film.Android.UI
 		}
 
 		public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-
 			view = inflater.Inflate (Resource.Layout.SearchFragment, container, false);
 
-			emptyLayout = (LinearLayout)view.FindViewById (Resource.Id.emptyView);
-			reloadBttn = (Button)view.FindViewById (Resource.Id.reload);
-			title = (TextView)view.FindViewById (Resource.Id.list_title);
+			emptyLayout = view.FindViewById (Resource.Id.emptyView) as LinearLayout;
+			reloadBttn = view.FindViewById (Resource.Id.reload) as Button;
+			title = view.FindViewById (Resource.Id.list_title) as TextView;
 			title.Visibility = ViewStates.Gone;
 
-			listView = (ListView)view.FindViewById (Resource.Id.list);
+			listView = view.FindViewById (Resource.Id.list) as ListView;
 			listView.ItemClick += OnListItemClick;
 
 			ProceedByConnectionStatus ();
@@ -97,17 +94,15 @@ namespace Funky_Film.Android.UI
 			if (connectionCheck.IsConnected()) {
 				NewCreditsAsCast();
 			} else {
-				Toast.MakeText (Activity.ApplicationContext, "No internet connection",ToastLength.Long).Show ();
+				Toast.MakeText (context, "No internet connection",ToastLength.Long).Show ();
 				listView.EmptyView = emptyLayout;
 				reloadBttn.Click += delegate {
 					ProceedByConnectionStatus ();
 				};
 			}
 		}
-
-
+		
 		private async Task<Credits> loadCreditsAsCast(){
-
 			Log.Info ("PersonAsCastFragment", "loadCreditsAsCastIN" );
 
 			Log.Info ("PersonAsCastFragment url", url);
@@ -116,11 +111,9 @@ namespace Funky_Film.Android.UI
 
 			Log.Info ("PersonAsCastFragment", "loadCreditsAsCastOUT" );
 			return credits;
-
 		}
 
 		private async void NewCreditsAsCast(){
-
 			Log.Info ("PersonAsCastFragment", "NewCreditsAsCastIN" );
 			Credits creditsToConvert = await loadCreditsAsCast ();
 
@@ -129,20 +122,17 @@ namespace Funky_Film.Android.UI
 			Log.Info ("PersonAsCastFragment", Convert.ToString (creditsAsCast.Count));
 
 
-			adapter = new CreditsCastAdapter (Activity.ApplicationContext, creditsAsCast);
+			adapter = new CreditsCastAdapter (context, creditsAsCast);
 			listView.Adapter = adapter;
 
 			Log.Info ("PersonAsCastFragment", "NewCreditsAsCastOUT" );
 		}
-
-
-
+		
 		void OnListItemClick(object sender, AdapterView.ItemClickEventArgs e){
 			int itemId = creditsAsCast.ElementAt (e.Position).Id;
 			string itemName = creditsAsCast.ElementAt (e.Position).Original_title;
 			listener.OnItemSelected (itemId, itemName);
 		}
-
 	}
 }
 

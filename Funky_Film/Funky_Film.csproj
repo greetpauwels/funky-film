@@ -90,9 +90,9 @@
     <Compile Include="Funky Film Android\Funky Film Android Adapter\CreditsCastAdapter.cs" />
     <Compile Include="Funky Film Android\Funky Film Android Util\ConnectivityChecker.cs" />
     <Compile Include="Funky Film Util\UIUtil.cs" />
-    <Compile Include="Funky Film Android\Funky Film Android UI\TabListener.cs" />
     <Compile Include="Funky Film DB\FavoritesDB.cs" />
     <Compile Include="Funky Film Model\Casting.cs" />
+    <Compile Include="Funky Film Android\Funky Film Android UI\TabListenerNOTUSED.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
