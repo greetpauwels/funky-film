@@ -51,11 +51,14 @@ namespace Funky_Film
 			Fragment movieTab = new DetailFragment ();
 			Fragment actorTab = new DetailActorFragment ();
 
+
+
 			AddTab (this.Resources.GetString (Resource.String.about), movieTab);
 			AddTab (this.Resources.GetString (Resource.String.cast_list), actorTab);
 
 			if(savedInstanceState != null){
-				ActionBar.SelectTab (ActionBar.GetTabAt (savedInstanceState.GetInt("lastTab")));
+				ActionBar.SetSelectedNavigationItem (savedInstanceState.GetInt("lastTab", 0));
+				//ActionBar.SelectTab (ActionBar.GetTabAt (savedInstanceState.GetInt("lastTab")));
 			}
 
 		}
@@ -64,7 +67,6 @@ namespace Funky_Film
 		{
 			var tab = this.ActionBar.NewTab ();
 			tab.SetText (tabText);
-
 
 			tab.TabSelected += delegate(object sender, ActionBar.TabEventArgs e) {
 				e.FragmentTransaction.Replace (Resource.Id.movie_container, fragment);
@@ -100,8 +102,6 @@ namespace Funky_Film
 			StartActivity (typeof(SearchActivity));
 			return true;
 		}
-
-
 	}
 
 }

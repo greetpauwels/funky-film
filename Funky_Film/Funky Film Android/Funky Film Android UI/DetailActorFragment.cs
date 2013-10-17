@@ -32,7 +32,7 @@ namespace Funky_Film
 		ConnectivityChecker connectionCheck;
 
 		private int movieId;
-		Cast cast;
+		Casting cast;
 		Actor[] actors;
 
 		string url;
@@ -96,7 +96,7 @@ namespace Funky_Film
 		}
 
 
-		private async Task<Cast> RunSearch(){
+		private async Task<Casting> RunSearch(){
 
 			Log.Info ("DetailActorFragment", "RunSearchIN" );
 
@@ -114,8 +114,8 @@ namespace Funky_Film
 
 			Log.Info ("DetailActorFragment", "NewSearchIN" );
 
-			Cast castToConvert = await RunSearch ();
-			actors = castToConvert.cast;
+			Casting castToConvert = await RunSearch ();
+			actors = castToConvert.Cast;
 
 			Log.Info ("DetailActorFragment", "NewSearchMID" );
 			Log.Info ("DetailActorFragment", " - newSearchMID "+Convert.ToString (actors.Length) ); 
@@ -127,8 +127,8 @@ namespace Funky_Film
 		}
 
 		void OnListItemClick(object sender, AdapterView.ItemClickEventArgs e){
-			int itemId = actors [e.Position].id;
-			string itemName = actors [e.Position].name;
+			int itemId = actors [e.Position].Id;
+			string itemName = actors [e.Position].Name;
 			listener.OnItemSelected (itemId, itemName);
 		}
 

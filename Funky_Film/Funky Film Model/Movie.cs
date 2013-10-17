@@ -16,22 +16,22 @@ namespace Funky_Film.Model
 	public class Movie
 	{
 
-		public int id{ get; set; }
-		public string backdrop_path { get; set; }
-		public string poster_path{ get; set; }
-		public bool adult{ get; set; }
-		public string[] genre{ get; set; }
-		public string original_title{ get; set; }
-		public string tagline{ get; set; }
-		public string overview{ get; set; }
-		public string release_date{ get; set; }
-		public int runtime{ get; set; }
-		public string status{ get; set; }
-		public Actor[] cast{ get; set; }
-		public CrewMember[] crew{ get; set; }
-		public string[] keywords{ get; set; }
-		public double vote_average { get; set; }
-		public double vote_count { get; set;}
+		public int Id{ get; set; }
+		public string Backdrop_path { get; set; }
+		public string Poster_path{ get; set; }
+		public bool Adult{ get; set; }
+		public string[] Genre{ get; set; }
+		public string Original_title{ get; set; }
+		public string Tagline{ get; set; }
+		public string Overview{ get; set; }
+		public string Release_date{ get; set; }
+		public int Runtime{ get; set; }
+		public string Status{ get; set; }
+		public Actor[] Cast{ get; set; }
+		public CrewMember[] Crew{ get; set; }
+		public string[] Keywords{ get; set; }
+		public double Vote_average { get; set; }
+		public double Vote_count { get; set;}
 
 		public Movie(){
 		}

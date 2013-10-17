@@ -55,6 +55,9 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\Components\json.net-4.5.11\lib\android\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="SQLite">
+      <HintPath>..\Components\sqlite-net-1.0.1\lib\android\SQLite.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Resources\Resource.designer.cs" />
@@ -77,7 +80,6 @@
     <Compile Include="Funky Film Model\Movie.cs" />
     <Compile Include="Funky Film Android\Funky Film Android UI\DetailActorFragment.cs" />
     <Compile Include="Funky Film Android\Funky Film Android Adapter\DetailActorAdapter.cs" />
-    <Compile Include="Funky Film Model\Cast.cs" />
     <Compile Include="Funky Film Android\Funky Film Android UI\PersonActivity.cs" />
     <Compile Include="Funky Film Android\Funky Film Android UI\PersonDetailFragment.cs" />
     <Compile Include="Funky Film Model\Person.cs" />
@@ -88,6 +90,9 @@
     <Compile Include="Funky Film Android\Funky Film Android Adapter\CreditsCastAdapter.cs" />
     <Compile Include="Funky Film Android\Funky Film Android Util\ConnectivityChecker.cs" />
     <Compile Include="Funky Film Util\UIUtil.cs" />
+    <Compile Include="Funky Film Android\Funky Film Android UI\TabListener.cs" />
+    <Compile Include="Funky Film DB\FavoritesDB.cs" />
+    <Compile Include="Funky Film Model\Casting.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -135,6 +140,7 @@
     <Folder Include="Resources\menu\" />
     <Folder Include="Funky Film Android\Funky Film Android Util\" />
     <Folder Include="Funky Film Util\" />
+    <Folder Include="Funky Film DB\" />
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="json.net">
@@ -143,6 +149,10 @@
     </XamarinComponentReference>
     <XamarinComponentReference Include="xamandroidsupportv13-18">
       <Version>13.18.0</Version>
+      <Visible>False</Visible>
+    </XamarinComponentReference>
+    <XamarinComponentReference Include="sqlite-net">
+      <Version>1.0.1</Version>
       <Visible>False</Visible>
     </XamarinComponentReference>
   </ItemGroup>

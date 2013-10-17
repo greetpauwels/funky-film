@@ -50,20 +50,20 @@ namespace Funky_Film.Android.Adapter
 
 			if (movies.Count != 0) {
 				Model.Movie movie = movies.ElementAt (position);
-				viewholder.titelView.Text = movie.original_title;
-				if (movie.vote_count != 0) {
-					viewholder.ratingView.Text = Convert.ToString (movie.vote_average) + "/10";
+				viewholder.titelView.Text = movie.Original_title;
+				if (movie.Vote_count != 0) {
+					viewholder.ratingView.Text = Convert.ToString (movie.Vote_average) + "/10";
 				} else {
 					viewholder.ratingView.Text = context.Resources.GetString (Resource.String.no_rating);
 				}
 
 
 
-				if (movie.poster_path != null) {
-					string url = Const.UrlImage92 + movie.poster_path;
+				if (movie.Poster_path != null) {
+					string url = Const.UrlImage92 + movie.Poster_path;
 					posterBitmap = new RemoteImageLoaderAndroid ().GetRemoteBitMap (url);
 				} 
-				if (movie.poster_path== null |posterBitmap == null) {
+				if (movie.Poster_path== null |posterBitmap == null) {
 					viewholder.thumbView.SetImageDrawable (context.Resources.GetDrawable (Resource.Drawable.default_movie_image));
 				} else {
 					viewholder.thumbView.SetImageBitmap (posterBitmap);

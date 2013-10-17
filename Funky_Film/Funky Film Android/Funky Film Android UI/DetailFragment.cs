@@ -109,40 +109,40 @@ namespace Funky_Film
 		private async void Newdetails(){
 			await LoadDetails ();
 
-			movie_title.Text = movie.original_title;
+			movie_title.Text = movie.Original_title;
 
-			if (movie.tagline != null && movie.tagline!="") {
-				movie_tagline.Text = movie.tagline;
+			if (movie.Tagline != null && movie.Tagline!="") {
+				movie_tagline.Text = movie.Tagline;
 			} else {
 				movie_tagline.Visibility = ViewStates.Gone;
 			}
 
-			if (movie.vote_count != 0) {
-				movie_cnt_rating.Text = Convert.ToString (movie.vote_average);
+			if (movie.Vote_count != 0) {
+				movie_cnt_rating.Text = Convert.ToString (movie.Vote_average);
 				movie_rating.Text = res.GetString (Resource.String.rating);
 			} else {
 				movie_cnt_rating.Visibility = ViewStates.Gone;
 				movie_rating.Visibility = ViewStates.Gone;
 			}
 
-			movie_cnt_overview.Text = movie.overview;
+			movie_cnt_overview.Text = movie.Overview;
 
 			movie_releasedate.Text = res.GetString (Resource.String.release_date);
-			movie_cnt_releasedate.Text = UIUtil.ConvertDateToEuropean (movie.release_date);
+			movie_cnt_releasedate.Text = UIUtil.ConvertDateToEuropean (movie.Release_date);
 
-			if (movie.runtime != 0) {
+			if (movie.Runtime != 0) {
 				movie_runtime.Text = res.GetString (Resource.String.minutes);
-				movie_cnt_runtime.Text = Convert.ToString (movie.runtime);
+				movie_cnt_runtime.Text = Convert.ToString (movie.Runtime);
 			} else {
 				movie_runtime.Visibility = ViewStates.Gone;
 				movie_cnt_runtime.Visibility = ViewStates.Gone;
 			}
 
 			movie_status.Text=res.GetString (Resource.String.status);
-			movie_cnt_status.Text = movie.status;
+			movie_cnt_status.Text = movie.Status;
 
-			if (movie.poster_path != null) {
-				string url = Const.UrlImage154 + movie.poster_path;
+			if (movie.Poster_path != null) {
+				string url = Const.UrlImage154 + movie.Poster_path;
 				movie_poster.SetImageBitmap (new RemoteImageLoaderAndroid ().GetRemoteBitMap (url));
 			} else {
 				movie_poster.SetImageDrawable(res.GetDrawable (Resource.Drawable.default_movie_image));

@@ -12,12 +12,12 @@ using Funky_Film.Model;
 
 namespace Funky_Film
 {
-	public class Cast
+	public class Casting
 	{
 
-		public int id{ get; set; } 
-		public Actor[]cast {get; set;}
-		public CrewMember[] crew{ get; set;}
+		public int Id{ get; set; } 
+		public Actor[]Cast {get; set;}
+		public CrewMember[] Crew{ get; set;}
 
 	}
 }

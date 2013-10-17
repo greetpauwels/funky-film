@@ -13,10 +13,10 @@ namespace Funky_Film.Model
 {
 	public class CrewMember
 	{
-		public int id { get; set; }
-		public String name { get; set; }
-		public String department { get; set; }
-		public String profile_path { get; set; }
+		public int Id { get; set; }
+		public String Name { get; set; }
+		public String Department { get; set; }
+		public String Profile_path { get; set; }
 
 		public CrewMember(){
 		}

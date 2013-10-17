@@ -16,6 +16,9 @@ using Funky_Film.Tasks;
 using Funky_Film.Android.Tasks;
 using Funky_Film.Android.Util;
 using Funky_Film.Util;
+using Java.Util;
+using Android.Provider;
+using Android.Text.Format;
 
 namespace Funky_Film.Android.UI
 {
@@ -111,29 +114,68 @@ namespace Funky_Film.Android.UI
 
 			await LoadPerson ();
 
-			personName.Text = person.name;
-			bio_cnt.Text = person.biography;
+			personName.Text = person.Name;
+			bio_cnt.Text = person.Biography;
 			birthday.Text = res.GetString (Resource.String.birthday);
-			birthday_cnt.Text = UIUtil.ConvertDateToEuropean(person.birthday);
+			birthday_cnt.Text = UIUtil.ConvertDateToEuropean(person.Birthday);
+
 			deathday.Text = res.GetString (Resource.String.deathday);
-			if (person.deathday != "") {
-				deathday_cnt.Text = UIUtil.ConvertDateToEuropean (person.deathday);
+			if (person.Deathday != "") {
+				deathday_cnt.Text = UIUtil.ConvertDateToEuropean (person.Deathday);
 			} else {
 				deathday.Visibility = ViewStates.Gone;
 				deathday_cnt.Visibility = ViewStates.Gone;
 			}
-			birthplace_cnt.Text = person.place_of_birth;
+			birthplace_cnt.Text = person.Place_of_birth;
 			homepage.Text = res.GetString (Resource.String.homepage);
-			homepage_cnt.Text = person.homepage;
+			homepage_cnt.Text = person.Homepage;
 
-			if (person.profile_path != null) {
-				string url = Const.UrlImage154 + person.profile_path;
+			if (person.Profile_path != null) {
+				string url = Const.UrlImage154 + person.Profile_path;
 				personPoster.SetImageBitmap (new RemoteImageLoaderAndroid ().GetRemoteBitMap (url));
 			} else {
 				personPoster.SetImageDrawable (res.GetDrawable (Resource.Drawable.default_actor_image));
 			}
 
+			birthday_cnt.Click += delegate {
+				addBirthdayToCalendar ();
+			};
+
 		}
+
+		private void addBirthdayToCalendar(){
+			Intent bday = new Intent (Intent.ActionEdit);
+			bday.SetType ("vnd.android.cursor.item/event");
+
+			string birthdayforIntent = UIUtil.ConvertDateToEuropean (person.Birthday);
+			int bday_day = UIUtil.getDay (birthdayforIntent);
+			Log.Info("PersonDetailFragment", "day:" +bday_day);
+			int bday_month = (UIUtil.getMonth (birthdayforIntent))-1;
+			Log.Info("PersonDetailFragment", "month:" +bday_month);
+			int bday_year = UIUtil.getYear (birthdayforIntent);
+			Log.Info("PersonDetailFragment", "year:" +bday_year);
+			Time today = new Time (Time.CurrentTimezone);
+			today.SetToNow ();
+			int year_start = today.Year;
+			//int year_end = 
+			Log.Info ("PersonDetailFragment", "year 2" + year_start);
+
+			Log.Info("PersonDetailFragment", birthdayforIntent);
+
+			GregorianCalendar date1 = new GregorianCalendar (year_start, bday_month, bday_day, 0, 0);
+			Log.Info ("PersonDetailFragment", "Gregdate start" +date1.Time);
+			GregorianCalendar date2 = new GregorianCalendar (2060, bday_month, bday_day, 0, 0);
+			Log.Info ("PersonDetailFragment", "Gregdate start" +date1.Time);
+
+			bday.PutExtra (CalendarContract.ExtraEventAllDay, true);
+			bday.PutExtra (CalendarContract.ExtraEventBeginTime, date1.TimeInMillis);
+			bday.PutExtra (CalendarContract.ExtraEventEndTime, date2.TimeInMillis);
+			bday.PutExtra ("rrule", "FREQ=YEARLY");
+			bday.PutExtra ("title", String.Format ("{0} born on {1}", person.Name, person.Birthday));
+			StartActivity (bday);
+		}
+
+	
 	}
 }
 

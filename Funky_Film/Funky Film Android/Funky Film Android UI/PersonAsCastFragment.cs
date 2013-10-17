@@ -124,7 +124,7 @@ namespace Funky_Film.Android.UI
 			Log.Info ("PersonAsCastFragment", "NewCreditsAsCastIN" );
 			Credits creditsToConvert = await loadCreditsAsCast ();
 
-			creditsAsCast = creditsToConvert.cast;
+			creditsAsCast = creditsToConvert.Cast;
 
 			Log.Info ("PersonAsCastFragment", Convert.ToString (creditsAsCast.Count));
 

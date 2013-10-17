@@ -45,7 +45,8 @@
                 android:layout_height="wrap_content"
                 android:layout_alignBaseline="@id/person_birthdate"
                 android:layout_toRightOf="@id/person_birthdate"
-                android:textSize="@dimen/content_txt_size" />
+                android:textSize="@dimen/content_txt_size"
+                android:textColor="#3366BB" />
             <TextView
                 android:id="@+id/person_birthplace_cnt"
                 android:layout_width="wrap_content"

@@ -13,14 +13,14 @@ namespace Funky_Film.Model
 {
 	public class Person
 	{	
-		public string biography { get; set; }
-		public string birthday { get; set; }
-		public string deathday { get; set; }
-		public string homepage { get; set; }
-		public int id { get; set; }
-		public string name { get; set; }
-		public string place_of_birth { get; set; }
-		public string profile_path { get; set; }
+		public string Biography { get; set; }
+		public string Birthday { get; set; }
+		public string Deathday { get; set; }
+		public string Homepage { get; set; }
+		public int Id { get; set; }
+		public string Name { get; set; }
+		public string Place_of_birth { get; set; }
+		public string Profile_path { get; set; }
 	}
 }
 

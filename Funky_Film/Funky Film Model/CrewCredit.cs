@@ -14,13 +14,13 @@ namespace Funky_Film
 	public class CrewCredit
 	{
 
-		public int id { get; set; }
-		public string title { get; set; }
-		public string original_title { get; set; }
-		public string department { get; set; }
-		public string job { get; set; }
-		public string poster_path { get; set; }
-		public string release_date { get; set; }
+		public int Id { get; set; }
+		public string Title { get; set; }
+		public string Original_title { get; set; }
+		public string Department { get; set; }
+		public string Job { get; set; }
+		public string Poster_path { get; set; }
+		public string Release_date { get; set; }
 
 	}
 }

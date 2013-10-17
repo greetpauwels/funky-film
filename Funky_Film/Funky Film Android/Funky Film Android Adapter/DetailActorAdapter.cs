@@ -51,15 +51,15 @@ namespace Funky_Film
 				// TODO: implicit typing
 				// var actor = actors.ElementAt (position);
 				Actor actor = actors.ElementAt (position);
-				viewHolder.nameView.Text = actor.name;
-				viewHolder.roleView.Text = actor.character;
+				viewHolder.nameView.Text = actor.Name;
+				viewHolder.roleView.Text = actor.Character;
 
-				if (actor.profile_path != null) {
+				if (actor.Profile_path != null) {
 					// TODO: use String.Format () for formatting strings
-					string url = Const.UrlImage92 + actor.profile_path;
+					string url = Const.UrlImage92 + actor.Profile_path;
 					posterBitmap = new RemoteImageLoaderAndroid ().GetRemoteBitMap (url);
 				}
-				if (actor.profile_path == null | posterBitmap == null) {
+				if (actor.Profile_path == null | posterBitmap == null) {
 					viewHolder.posterView.SetImageDrawable (context.Resources.GetDrawable (Resource.Drawable.default_actor_image));
 				} else {
 					viewHolder.posterView.SetImageBitmap (posterBitmap);

@@ -8,17 +8,11 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-using Funky_Film.Model;
 
 namespace Funky_Film
 {
-	public class Credits
+	class DB
 	{
-		public List<CastCredit> Cast { get; set; }
-		public List<CrewCredit> Crew { get; set; }
-		public int Id { get; set; }
-
-
 	}
 }
 

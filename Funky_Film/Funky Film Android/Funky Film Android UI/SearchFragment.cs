@@ -114,8 +114,8 @@ namespace Funky_Film.Android.UI
 
 	void OnListItemClick(object sender, AdapterView.ItemClickEventArgs e){
 			//Movie movie = this.adapter.GetItem (e.Position);
-			int itemId = movies.ElementAt (e.Position).id;
-			string itemName = movies.ElementAt (e.Position).original_title;
+			int itemId = movies.ElementAt (e.Position).Id;
+			string itemName = movies.ElementAt (e.Position).Original_title;
 			listener.OnItemSelected (itemId, itemName);
 		}
 
@@ -141,7 +141,7 @@ namespace Funky_Film.Android.UI
 
 			Log.Info ("SearchFragment", "NewSearchOUT" );
 
-			return  movieList.results.OfType<Movie> ().ToList ();
+			return  movieList.Results.OfType<Movie> ().ToList ();
 
 		}
 

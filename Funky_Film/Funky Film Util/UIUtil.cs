@@ -8,6 +8,8 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Android;
+using Android.Util;
 
 namespace Funky_Film.Util
 {
@@ -26,6 +28,24 @@ namespace Funky_Film.Util
 
 
 		}
-	}
-}
 
+
+		public static int getDay(string date){
+
+			string day = date.Substring (0, 2);
+			return  Convert.ToInt32 (day);
+	}
+
+		public static int getMonth(string date){
+
+			string month = date.Substring (3, 2);
+			return  Convert.ToInt32 (month);
+		}
+
+		public static int getYear(string date){
+
+			string year = date.Substring (6, 4);
+			return  Convert.ToInt32 (year);
+		}
+}
+}
