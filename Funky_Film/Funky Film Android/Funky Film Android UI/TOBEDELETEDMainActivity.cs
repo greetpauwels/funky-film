@@ -10,7 +10,7 @@ using Android.Views;
 using Android.Widget;
 using Funky_Film.Android.UI;
 
-namespace Funky_Film.Android.Ui
+namespace Funky_Film.Android.UI
 {
 	[Activity (Label = "MainActivity")]		
 

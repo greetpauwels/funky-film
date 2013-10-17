@@ -10,10 +10,11 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.Graphics;
+using Funky_Film.Model;
 using Funky_Film.Android.Tasks;
 using Android.Util;
 
-namespace Funky_Film
+namespace Funky_Film.Android.Adapter
 {
 	class CreditsCastAdapter: ArrayAdapter<CastCredit>
 	{

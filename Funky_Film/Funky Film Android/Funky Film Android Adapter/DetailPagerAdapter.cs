@@ -9,9 +9,10 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.Support.V13.App;
+using Funky_Film.Android.UI;
 
 
-namespace Funky_Film
+namespace Funky_Film.Android.Adapter
 {
 	class DetailPagerAdapter : FragmentPagerAdapter
 	{

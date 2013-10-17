@@ -17,7 +17,7 @@ using Funky_Film.Android.Util;
 using Funky_Film.Util;
 using System.Resources;
 
-namespace Funky_Film
+namespace Funky_Film.Android.UI
 {
 	public class DetailFragment : Fragment
 	{

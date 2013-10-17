@@ -15,7 +15,7 @@ using Funky_Film.Android.Tasks;
 using Android.Util;
 using Android.Graphics;
 
-namespace Funky_Film.Android.Adapter 
+namespace Funky_Film.Android.Adapter
 {
 	class SearchListAdapter : ArrayAdapter<Model.Movie>
 	{

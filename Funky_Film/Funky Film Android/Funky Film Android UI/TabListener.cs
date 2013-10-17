@@ -9,7 +9,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 
-namespace Funky_Film
+namespace Funky_Film.Android.UI
 {
 	public class TabListener<T>: Java.Lang.Object, ActionBar.ITabListener where T: Fragment, new()
 	{

@@ -17,7 +17,7 @@ using Funky_Film.Android.UI;
 using Android.Content.PM;
 
 
-namespace Funky_Film
+namespace Funky_Film.Android.UI
 {
 	[Activity]	
 			

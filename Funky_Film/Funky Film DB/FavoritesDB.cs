@@ -9,7 +9,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 
-namespace Funky_Film
+namespace Funky_Film.Model
 {
 	class DB
 	{

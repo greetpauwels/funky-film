@@ -20,7 +20,7 @@ using System.Net.Mime;
 using System.Resources;
 using Funky_Film.Android.Util;
 
-namespace Funky_Film
+namespace Funky_Film.Android.UI
 {
 	public class DetailActorFragment : Fragment
 	{

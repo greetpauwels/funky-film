@@ -13,7 +13,7 @@ using Android.Util;
 using Android.Graphics;
 using Funky_Film.Android.Tasks;
 
-namespace Funky_Film
+namespace Funky_Film.Android.Adapter
 {
 	class DetailActorAdapter : ArrayAdapter<Actor>
 	{
