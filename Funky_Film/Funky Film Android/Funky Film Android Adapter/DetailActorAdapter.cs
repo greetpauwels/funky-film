@@ -35,14 +35,14 @@ namespace Funky_Film.Android.Adapter
 				LayoutInflater inflater = LayoutInflater.From (context);
 				convertView = inflater.Inflate (Resource.Layout.ActorRowLayout, parent, false);
 				viewHolder = new ViewHolder();
-				viewHolder.nameView = (TextView)convertView.FindViewById (Resource.Id.actor_name);
-				viewHolder.roleView = (TextView)convertView.FindViewById (Resource.Id.actor_role);
-				viewHolder.posterView = (ImageView)convertView.FindViewById (Resource.Id.actor_thumbnail);
+				viewHolder.nameView = convertView.FindViewById (Resource.Id.actor_name) as TextView;
+				viewHolder.roleView = convertView.FindViewById (Resource.Id.actor_role)as TextView;
+				viewHolder.posterView = convertView.FindViewById (Resource.Id.actor_thumbnail) as ImageView;
 				convertView.Tag = viewHolder;
 			} else {
 				// TODO use as operator instead of (cast)
 				// as will return null / casting will throw an error if it cannot be cast.
-				viewHolder = (ViewHolder)convertView.Tag;
+				viewHolder = convertView.Tag as ViewHolder;
 			}
 
 			Log.Info ("DetailActorAdapter", Convert.ToString (actors.Count));
@@ -50,7 +50,7 @@ namespace Funky_Film.Android.Adapter
 			if (actors.Count != 0) {
 				// TODO: implicit typing
 				// var actor = actors.ElementAt (position);
-				Actor actor = actors.ElementAt (position);
+				var actor = actors.ElementAt (position);
 				viewHolder.nameView.Text = actor.Name;
 				viewHolder.roleView.Text = actor.Character;
 
@@ -66,17 +66,13 @@ namespace Funky_Film.Android.Adapter
 				}
 			}
 			return convertView;
-
 		}
-		// TODO: clean up whitespace :)
 
-		class ViewHolder:Java.Lang.Object {
+		private class ViewHolder:Java.Lang.Object {
 			public TextView nameView;
 			public TextView roleView;
 			public ImageView posterView;
 		}
-
-
 	}
 }
 

@@ -37,12 +37,12 @@ namespace Funky_Film.Android.Adapter
 				LayoutInflater inflater = LayoutInflater.From (context);
 				convertView = inflater.Inflate (Resource.Layout.CreditsRowLayout, parent, false);
 				viewHolder = new ViewHolder();
-				viewHolder.titelView = (TextView)convertView.FindViewById (Resource.Id.credit_title);
-				viewHolder.roleView = (TextView)convertView.FindViewById (Resource.Id.credit_role);
-				viewHolder.thumbView = (ImageView)convertView.FindViewById (Resource.Id.credit_thumbnail);
+				viewHolder.titelView = convertView.FindViewById (Resource.Id.credit_title) as TextView;
+				viewHolder.roleView = convertView.FindViewById (Resource.Id.credit_role) as TextView;
+				viewHolder.thumbView = convertView.FindViewById (Resource.Id.credit_thumbnail) as ImageView;
 				convertView.Tag = viewHolder;
 			} else {
-				viewHolder = (ViewHolder)convertView.Tag;
+				viewHolder = convertView.Tag as ViewHolder;
 			}
 
 			Log.Info ("CreditCastAdapter", Convert.ToString (creditsAsCast.Count));
@@ -50,7 +50,7 @@ namespace Funky_Film.Android.Adapter
 			Log.Info ("CreditCastAdapter", (viewHolder.titelView==null).ToString ());
 
 			if (creditsAsCast.Count != 0) {
-				CastCredit credit = new CastCredit ();
+				var credit = new CastCredit ();
 				credit = creditsAsCast.ElementAt (position);
 
 				viewHolder.titelView.Text = credit.title;
@@ -60,25 +60,21 @@ namespace Funky_Film.Android.Adapter
 					string url = Const.UrlImage92 + credit.poster_path;
 					posterBitmap = new RemoteImageLoaderAndroid ().GetRemoteBitMap (url);
 				} 
+
 				if (credit.poster_path== null |posterBitmap == null) {
 					viewHolder.thumbView.SetImageDrawable (context.Resources.GetDrawable (Resource.Drawable.default_crew_image));
 				} else {
 					viewHolder.thumbView.SetImageBitmap (posterBitmap);
 				}
-
 			}
-
 			return convertView;
-
 		}
 
-
-		class ViewHolder:Java.Lang.Object {
+		private class ViewHolder:Java.Lang.Object {
 			public TextView titelView;
 			public TextView roleView;
 			public ImageView thumbView;
 		}
-
 	}
 }
 

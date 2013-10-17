@@ -30,7 +30,6 @@ namespace Funky_Film.Android.Adapter
 
 		public override View GetView (int position, View convertView, ViewGroup parent)
 		{
-
 			ViewHolder viewholder;
 			Bitmap posterBitmap = null;
 
@@ -38,26 +37,24 @@ namespace Funky_Film.Android.Adapter
 				LayoutInflater inflater = LayoutInflater.From (context);
 				convertView = inflater.Inflate (Resource.Layout.Rowlayout, parent, false);
 				viewholder = new ViewHolder ();
-				viewholder.titelView = (TextView)convertView.FindViewById (Resource.Id.title);
-				viewholder.ratingView = (TextView)convertView.FindViewById (Resource.Id.rating);
-				viewholder.thumbView = (ImageView)convertView.FindViewById (Resource.Id.thumbnail);
+				viewholder.titelView = convertView.FindViewById (Resource.Id.title) as TextView;
+				viewholder.ratingView = convertView.FindViewById (Resource.Id.rating) as TextView;
+				viewholder.thumbView = convertView.FindViewById (Resource.Id.thumbnail) as ImageView;
 				convertView.Tag = viewholder;
 			} else {
-				viewholder = (ViewHolder)convertView.Tag;
+				viewholder = convertView.Tag as ViewHolder;
 			}
 
 			Log.Info ("SearchListAdapter", Convert.ToString (movies.Count));
 
 			if (movies.Count != 0) {
-				Model.Movie movie = movies.ElementAt (position);
+				var movie = movies.ElementAt (position);
 				viewholder.titelView.Text = movie.Original_title;
 				if (movie.Vote_count != 0) {
 					viewholder.ratingView.Text = Convert.ToString (movie.Vote_average) + "/10";
 				} else {
 					viewholder.ratingView.Text = context.Resources.GetString (Resource.String.no_rating);
 				}
-
-
 
 				if (movie.Poster_path != null) {
 					string url = Const.UrlImage92 + movie.Poster_path;
@@ -68,20 +65,15 @@ namespace Funky_Film.Android.Adapter
 				} else {
 					viewholder.thumbView.SetImageBitmap (posterBitmap);
 				}
-
 			}
 			return convertView;
 		}
-
-
 
 		class ViewHolder:Java.Lang.Object {
 			public TextView titelView;
 			public TextView ratingView;
 			public ImageView thumbView;
 		}
-
-
 	}
 }
 
