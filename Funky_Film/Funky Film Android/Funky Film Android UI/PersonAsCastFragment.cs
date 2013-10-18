@@ -77,6 +77,9 @@ namespace Funky_Film.Android.UI
 		public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
 			view = inflater.Inflate (Resource.Layout.SearchFragment, container, false);
 
+			var viewToHide = view.FindViewById(Resource.Id.separator) as View;
+			viewToHide.Visibility = ViewStates.Gone;
+
 			emptyLayout = view.FindViewById (Resource.Id.emptyView) as LinearLayout;
 			reloadBttn = view.FindViewById (Resource.Id.reload) as Button;
 			title = view.FindViewById (Resource.Id.list_title) as TextView;

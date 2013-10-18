@@ -149,29 +149,21 @@ namespace Funky_Film.Android.UI
 
 			string birthdayforIntent = UIUtil.ConvertDateToEuropean (person.Birthday);
 			int bday_day = UIUtil.getDay (birthdayforIntent);
-			Log.Info("PersonDetailFragment", "day:" +bday_day);
 			int bday_month = (UIUtil.getMonth (birthdayforIntent))-1;
-			Log.Info("PersonDetailFragment", "month:" +bday_month);
 			int bday_year = UIUtil.getYear (birthdayforIntent);
-			Log.Info("PersonDetailFragment", "year:" +bday_year);
 			Time today = new Time (Time.CurrentTimezone);
 			today.SetToNow ();
 			int year_start = today.Year;
-			//int year_end = 
-			Log.Info ("PersonDetailFragment", "year 2" + year_start);
-
-			Log.Info("PersonDetailFragment", birthdayforIntent);
+			int year_end = 2060;
 
 			GregorianCalendar date1 = new GregorianCalendar (year_start, bday_month, bday_day, 0, 0);
-			Log.Info ("PersonDetailFragment", "Gregdate start" +date1.Time);
-			GregorianCalendar date2 = new GregorianCalendar (2060, bday_month, bday_day, 0, 0);
-			Log.Info ("PersonDetailFragment", "Gregdate start" +date1.Time);
+			GregorianCalendar date2 = new GregorianCalendar (year_end, bday_month, bday_day, 0, 0);
 
 			bday.PutExtra (CalendarContract.ExtraEventAllDay, true);
 			bday.PutExtra (CalendarContract.ExtraEventBeginTime, date1.TimeInMillis);
 			bday.PutExtra (CalendarContract.ExtraEventEndTime, date2.TimeInMillis);
 			bday.PutExtra ("rrule", "FREQ=YEARLY");
-			bday.PutExtra ("title", String.Format ("{0} born on {1}", person.Name, person.Birthday));
+			bday.PutExtra ("title", String.Format ("{0} born on {1}", person.Name, birthdayforIntent));
 			StartActivity (bday);
 		}
 
